@@ -3,10 +3,10 @@ server:
 spring:
   profiles:
     active: native
-  boot:
-    admin:
-      client:
-        url: ${ADMIN_SERVER:http://localhost:8090/}
+#  boot:
+#    admin:
+#      client:
+#        url: ${ADMIN_SERVER:http://localhost:8090/}
   cloud:
     config:
       allowOverride: true

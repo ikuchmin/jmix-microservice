@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM bellsoft/liberica-openjre-alpine:17
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY build/libs/*.jar /app/app.jar

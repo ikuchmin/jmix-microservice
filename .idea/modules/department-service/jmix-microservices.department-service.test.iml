@@ -36,6 +36,9 @@
         <option name="projectId" value="depa" />
         <option name="rootBuildFilePath" value="$MODULE_DIR$/../../../build.gradle" />
         <option name="rootProjectName" value="jmix-microservices" />
+        <option name="stateBuildScriptRepositories">
+          <Repository url="https://plugins.gradle.org/m2" />
+        </option>
         <option name="stateRepositories">
           <Repository url="https://repo.maven.apache.org/maven2/" />
           <Repository url="https://global.repo.jmix.io/repository/public" />

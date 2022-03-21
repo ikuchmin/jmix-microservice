@@ -1,4 +1,4 @@
-FROM openjdk:17-jre-alpine
+FROM bellsoft/liberica-openjre-alpine:17
 ENV APP_HOME /app
 ADD build/libs/*.jar /app/app.jar
 ENV JAVA_OPTS=""

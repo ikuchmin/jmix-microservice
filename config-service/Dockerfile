@@ -1,4 +1,4 @@
-FROM openjdk:17-jre-alpine
+FROM bellsoft/liberica-openjre-alpine:17
 #ENV APP_FILE config-service-1.0.0-SNAPSHOT.jar
 ENV APP_HOME /app
 WORKDIR $APP_HOME
