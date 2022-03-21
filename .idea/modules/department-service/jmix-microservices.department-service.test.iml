@@ -8,7 +8,7 @@
         <option name="artifactName" value="department-service" />
         <option name="artifactVersion" value="0.0.1-SNAPSHOT" />
         <option name="bomVersion" value="1.2.1" />
-        <option name="buildFilePath" value="$MODULE_DIR$/../../department-service/build.gradle" />
+        <option name="buildFilePath" value="$MODULE_DIR$/../../../department-service/build.gradle" />
         <option name="buildScriptDependencies">
           <Dependency configuration="classpath" group="io.jmix" name="io.jmix.gradle.plugin" version="1.2.0" />
         </option>
@@ -29,12 +29,12 @@
           <Dependency configuration="widgets" group="javax.validation" name="validation-api" version="1.0.0.GA" />
           <Dependency configuration="implementation platform" group="io.jmix.bom" name="jmix-bom" version="1.2.1" />
         </option>
-        <option name="jarFile" value="$MODULE_DIR$/../../department-service/build/libs/department-service-0.0.1-SNAPSHOT-plain.jar" />
+        <option name="jarFile" value="$MODULE_DIR$/../../../department-service/build/libs/department-service-0.0.1-SNAPSHOT-plain.jar" />
         <option name="jmixVersion" value="1.2.1" />
         <option name="mavenLocalURI" value="file:$MAVEN_REPOSITORY$/" />
         <option name="moduleName" value="department-service" />
         <option name="projectId" value="depa" />
-        <option name="rootBuildFilePath" value="$MODULE_DIR$/../../build.gradle" />
+        <option name="rootBuildFilePath" value="$MODULE_DIR$/../../../build.gradle" />
         <option name="rootProjectName" value="jmix-microservices" />
         <option name="stateRepositories">
           <Repository url="https://repo.maven.apache.org/maven2/" />
