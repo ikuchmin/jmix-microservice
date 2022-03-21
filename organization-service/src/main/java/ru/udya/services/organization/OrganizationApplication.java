@@ -2,7 +2,14 @@ package ru.udya.services.organization;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import ru.udya.services.organization.model.Organization;
+import ru.udya.services.organization.repository.OrganizationRepository;
 
+@EnableEurekaClient
+@EnableFeignClients
 @SpringBootApplication
 public class OrganizationApplication {
 
@@ -10,4 +17,11 @@ public class OrganizationApplication {
         SpringApplication.run(OrganizationApplication.class, args);
     }
 
+    @Bean
+    public OrganizationRepository repository() {
+        OrganizationRepository repository = new OrganizationRepository();
+        repository.add(new Organization("Microsoft", "Redmond, Washington, USA"));
+        repository.add(new Organization("Oracle", "Redwood City, California, USA"));
+        return repository;
+    }
 }
