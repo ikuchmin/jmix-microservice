@@ -39,7 +39,7 @@ services:
     ports:
       - "8061:8061"
     mem_limit: 512MB
-     :
+    healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:8061/actuator/health || exit 1
       interval: 10s
       timeout: 5s
@@ -66,4 +66,17 @@ services:
       retries: 6      
     depends_on:
       discovery:
+        condition: service_healthy
+
+  organization:
+    hostname: organization
+    build: ./organization-service/
+    environment:
+      - JAVA_OPTS=
+        -DADMIN_SERVER=http://admin:8090/
+        -DCONFIG_SERVER=http://config:8088/
+        -DEUREKA_SERVER=http://discovery:8061/eureka/
+    mem_limit: 512MB
+    depends_on:
+      gateway:
         condition: service_healthy
