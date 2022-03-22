@@ -7,7 +7,7 @@ import ru.udya.services.organization.model.Employee;
 
 import java.util.List;
 
-@FeignClient(name = "employee-service")
+@FeignClient(name = "employee-service", path = "/rest/public")
 public interface EmployeeClient {
 
 	@GetMapping("/organization/{organizationId}")

@@ -26,6 +26,31 @@ management:
       exposure:
         include: "*"
 
+jmix:
+  core:
+    available-locales: en
+  rest:
+    anonymous-url-patterns: /rest/docs/*
+
+main:
+  datasource:
+    url: jdbc:hsqldb:file:.jmix/hsqldb/empl
+    username: sa
+    password:
+
 logging:
-  pattern: 
+  pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  level:
+    eclipselink:
+      logging:
+        sql: info
+    io:
+      jmix: info
+    org:
+      springframework:
+        web: debug
+
+#        core:
+#          datastore: info
+#          AccessLogger: debug

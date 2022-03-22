@@ -17,6 +17,7 @@ sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
         url 'https://global.repo.jmix.io/repository/public'
     }

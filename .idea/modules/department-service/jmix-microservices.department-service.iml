@@ -48,6 +48,7 @@
         </option>
         <option name="jarFile" value="$MODULE_DIR$/../../../department-service/build/libs/department-service-0.0.1-SNAPSHOT-plain.jar" />
         <option name="jmixVersion" value="1.2.1" />
+        <option name="mavenLocal" value="true" />
         <option name="mavenLocalURI" value="file:$MAVEN_REPOSITORY$/" />
         <option name="moduleName" value="department-service" />
         <option name="projectId" value="depa" />
