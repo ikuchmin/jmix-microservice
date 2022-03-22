@@ -8,13 +8,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
+import ru.udya.services.department.model.Department;
+import ru.udya.services.department.repository.DepartmentRepository;
 
 import javax.sql.DataSource;
 
+@EnableEurekaClient
+@EnableFeignClients
 @SpringBootApplication
 public class DepartmentApplication {
 
@@ -45,5 +51,15 @@ public class DepartmentApplication {
                 + "http://localhost:"
                 + environment.getProperty("local.server.port")
                 + Strings.nullToEmpty(environment.getProperty("server.servlet.context-path")));
+    }
+
+    @Bean
+    DepartmentRepository repository() {
+        DepartmentRepository repository = new DepartmentRepository();
+        repository.add(new Department(1L, "Development"));
+        repository.add(new Department(1L, "Operations"));
+        repository.add(new Department(2L, "Development"));
+        repository.add(new Department(2L, "Operations"));
+        return repository;
     }
 }

@@ -24,6 +24,7 @@
         <option name="buildFilePath" value="$MODULE_DIR$/../../../department-service/build.gradle" />
         <option name="buildScriptDependencies">
           <Dependency configuration="classpath" group="io.jmix" name="io.jmix.gradle.plugin" version="1.2.0" />
+          <Dependency configuration="classpath" group="io.spring.dependency-management" name="io.spring.dependency-management.gradle.plugin" version="1.0.11.RELEASE" />
         </option>
         <option name="buildSystemName" value="Gradle" />
         <option name="dependencies">
@@ -34,7 +35,13 @@
           <Dependency configuration="implementation" group="io.jmix.security" name="jmix-security-data-starter" />
           <Dependency configuration="implementation" group="io.jmix.security" name="jmix-security-oauth2-starter" />
           <Dependency configuration="implementation" group="io.jmix.localfs" name="jmix-localfs-starter" />
+          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-actuator" />
           <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-web" />
+          <Dependency configuration="implementation" group="de.codecentric" name="spring-boot-admin-starter-client" />
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-config" />
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-netflix-eureka-client" />
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-openfeign" />
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-sleuth" />
           <Dependency configuration="runtimeOnly" group="org.hsqldb" name="hsqldb" />
           <Dependency configuration="testImplementation" group="org.springframework.boot" name="spring-boot-starter-test">
             <ExcludeRule group="org.junit.vintage" module="junit-vintage-engine" />

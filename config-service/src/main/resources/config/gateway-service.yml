@@ -46,7 +46,7 @@ spring:
         predicates:
         - Path=/department/**
         filters:
-        - RewritePath=/department/(?<path>.*), /$\{path}
+        - RewritePath=/department/(?<path>.*), /rest/public/$\{path}
       - id: organization-service
         uri: lb://organization-service
         predicates:

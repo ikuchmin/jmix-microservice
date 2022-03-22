@@ -68,6 +68,19 @@ services:
       discovery:
         condition: service_healthy
 
+  department:
+    hostname: department
+    build: ./department-service/
+    environment:
+      - JAVA_OPTS=
+        -DADMIN_SERVER=http://admin:8090/
+        -DCONFIG_SERVER=http://config:8088/
+        -DEUREKA_SERVER=http://discovery:8061/eureka/
+    mem_limit: 512MB
+    depends_on:
+      gateway:
+        condition: service_healthy
+
   organization:
     hostname: organization
     build: ./organization-service/
