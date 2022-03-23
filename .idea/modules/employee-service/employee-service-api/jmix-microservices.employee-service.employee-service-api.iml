@@ -5,9 +5,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Jmix EclipseLink" />
-        <datasource-mapping>
-          <factory-entry name="jmix-microservices" />
-        </datasource-mapping>
+        <datasource-mapping />
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -16,13 +14,17 @@
     <option name="hasState" value="true" />
     <option name="moduleState">
       <JmixModuleStateV2>
+        <option name="artifactGroup" value="jmix-microservices.employee-service" />
+        <option name="artifactName" value="employee-service" />
         <option name="artifactVersion" value="unspecified" />
-        <option name="buildFilePath" value="$MODULE_DIR$/../../build.gradle" />
+        <option name="bomVersion" value="1.2.1" />
+        <option name="buildFilePath" value="$MODULE_DIR$/../../../../employee-service/employee-service-api/build.gradle" />
         <option name="buildSystemName" value="Gradle" />
         <option name="jmixVersion" value="1.2.1" />
         <option name="mavenLocalURI" value="file:$MAVEN_REPOSITORY$/" />
-        <option name="moduleName" value="jmix-microservices" />
-        <option name="rootBuildFilePath" value="$MODULE_DIR$/../../build.gradle" />
+        <option name="moduleName" value="employee-service-api" />
+        <option name="projectId" value="empl" />
+        <option name="rootBuildFilePath" value="$MODULE_DIR$/../../../../build.gradle" />
         <option name="rootProjectName" value="jmix-microservices" />
       </JmixModuleStateV2>
     </option>

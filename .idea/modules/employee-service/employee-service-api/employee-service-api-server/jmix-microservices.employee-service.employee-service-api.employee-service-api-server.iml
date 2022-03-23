@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="JmixProjectModulesStateV2">
+    <option name="hasState" value="true" />
+    <option name="moduleState">
+      <JmixModuleStateV2>
+        <option name="artifactGroup" value="jmix-microservices.employee-service.employee-service-api" />
+        <option name="artifactName" value="employee-service" />
+        <option name="artifactVersion" value="unspecified" />
+        <option name="bomVersion" value="1.2.1" />
+        <option name="buildFilePath" value="$MODULE_DIR$/../../../../../employee-service/employee-service-api/employee-service-api-server/build.gradle" />
+        <option name="buildSystemName" value="Gradle" />
+        <option name="jmixVersion" value="1.2.1" />
+        <option name="mavenLocalURI" value="file:$MAVEN_REPOSITORY$/" />
+        <option name="moduleName" value="employee-service-api-server" />
+        <option name="projectId" value="empl" />
+        <option name="rootBuildFilePath" value="$MODULE_DIR$/../../../../../build.gradle" />
+        <option name="rootProjectName" value="jmix-microservices" />
+      </JmixModuleStateV2>
+    </option>
+  </component>
+</module>

@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  title: Employee Service API
+  description: API for Employee
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080/app-portal-career/api
+    description: Local developing server
+
+paths:
+  /employee/:
+    get:
+      tags:
+        - employee-controller
+      summary: findAllEmployees
+      operationId: findAllEmployeeUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Employee'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - employee-controller
+      summary: addEmployee
+      operationId: addEmployeeUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: employee
+          description: employee
+          required: true
+          schema:
+            $ref: '#/definitions/Employee'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Employee'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    /employee/department/{departmentId}:
+      get:
+        tags:
+          - employee-controller
+        summary: findEmployeeByDepartment
+        operationId: findEmployeeByDepartmentUsingGET
+        produces:
+          - '*/*'
+        parameters:
+          - name: departmentId
+            in: path
+            description: departmentId
+            required: true
+            type: integer
+            format: int64
+        responses:
+          '200':
+            description: OK
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/Employee'
+          '401':
+            description: Unauthorized
+          '403':
+            description: Forbidden
+          '404':
+            description: Not Found
+    /employee/organization/{organizationId}:
+      get:
+        tags:
+          - employee-controller
+        summary: findEmployeeByOrganization
+        operationId: findEmployeeByOrganizationUsingGET
+        produces:
+          - '*/*'
+        parameters:
+          - name: organizationId
+            in: path
+            description: organizationId
+            required: true
+            type: integer
+            format: int64
+        responses:
+          '200':
+            description: OK
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/Employee'
+          '401':
+            description: Unauthorized
+          '403':
+            description: Forbidden
+          '404':
+            description: Not Found
+    /employee/{id}:
+      get:
+        tags:
+          - employee-controller
+        summary: findEmployeeById
+        operationId: findEmployeeByIdUsingGET
+        produces:
+          - '*/*'
+        parameters:
+          - name: id
+            in: path
+            description: id
+            required: true
+            type: integer
+            format: int64
+        responses:
+          '200':
+            description: OK
+            schema:
+              $ref: '#/definitions/Employee'
+          '401':
+            description: Unauthorized
+          '403':
+            description: Forbidden
+          '404':
+            description: Not Found

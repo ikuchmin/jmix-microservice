@@ -30,3 +30,8 @@ This sample microservices-based system consists of the following modules:
 The following picture illustrates the architecture described above.
 
 ![Architecture](https://github.com/ikuchmin/jmix-microservice/raw/master/assets/img/architecture.png)
+
+
+### Gradle project structure
+
+To create new gradle module/project just add empty build.gradle in a folder

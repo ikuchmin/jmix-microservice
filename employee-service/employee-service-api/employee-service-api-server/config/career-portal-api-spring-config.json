@@ -1,0 +1,13 @@
+{
+  "apiPackage": "ru.hse.careerapi.api",
+  "modelPackage": "ru.hse.careerapi.model",
+  "invokerPackage": "ru.hse.careerapi.api.invoker",
+  "modelFilesConstrainedTo": ["Error"],
+  "useRuntimeException": true,
+  "library": "spring-mvc",
+  "dateLibrary": "java8",
+  "java8": true,
+  "interfaceOnly": true,
+  "delegatePattern": true,
+  "useTags": true
+}
