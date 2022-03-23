@@ -8,6 +8,6 @@
     <property name="uuid.type" dbms="oracle" value="varchar2(32)"/>
     <property name="uuid.type" dbms="!oracle" value="uuid"/>
 
-    <includeAll path="/ru/udya/services/employee/liquibase/changelog"/>
+    <includeAll path="ru/udya/services/employee/liquibase/changelog"/>
 
 </databaseChangeLog>

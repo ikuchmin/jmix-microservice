@@ -4,17 +4,13 @@ info:
   description: API for Employee
   version: 1.0.0
 
-servers:
-  - url: http://localhost:8080/app-portal-career/api
-    description: Local developing server
-
 paths:
-  /employee/:
+  /rest/public/employee/:
     get:
       summary: Find all Employees
-      operationId: findAllEmployeeUsingGET
+      operationId: findAll
       tags:
-        - employee-controller
+        - employee
       responses:
         '200':
           description: OK
@@ -23,7 +19,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Employee'
+                  $ref: '#/components/schemas/EmployeeDto'
         '401':
           description: Unauthorized
         '403':
@@ -32,22 +28,22 @@ paths:
           description: Not Found
     post:
       summary: Add Employee
-      operationId: addEmployeeUsingPOST
+      operationId: create
       tags:
-        - employee-controller
+        - employee
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Employee'
+              $ref: '#/components/schemas/EmployeeDto'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Employee'
+                $ref: '#/components/schemas/EmployeeDto'
         '201':
           description: Created
         '401':
@@ -56,12 +52,12 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-  /employee/department/{departmentId}:
+  /rest/public/employee/department/{departmentId}:
     get:
       summary: Find Employee by Department
-      operationId: findEmployeeByDepartmentUsingGET
+      operationId: findByDepartment
       tags:
-        - employee-controller
+        - employee
       parameters:
         - name: departmentId
           in: path
@@ -76,19 +72,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Employee'
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeDto'
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
         '404':
           description: Not Found
-  /employee/organization/{organizationId}:
+  /rest/public/employee/organization/{organizationId}:
     get:
       summary: Find Employee by Organization
-      operationId: findEmployeeByOrganizationUsingGET
+      operationId: findByOrganization
       tags:
-        - employee-controller
+        - employee
       parameters:
         - name: organizationId
           in: path
@@ -103,19 +101,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Employee'
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeDto'
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
         '404':
           description: Not Found
-  /employee/{id}:
+  /rest/public/employee/{id}:
     get:
       summary: Find Employee by Id
-      operationId: findEmployeeByIdUsingGET
+      operationId: findById
       tags:
-        - employee-controller
+        - employee
       parameters:
         - name: id
           in: path
@@ -130,7 +130,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Employee'
+                $ref: '#/components/schemas/EmployeeDto'
         '401':
           description: Unauthorized
         '403':
@@ -139,7 +139,7 @@ paths:
           description: Not Found
 components:
   schemas:
-    Employee:
+    EmployeeDto:
       type: object
       properties:
         age:

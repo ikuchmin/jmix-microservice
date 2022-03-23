@@ -73,7 +73,8 @@ configure(serverModule) {
     sourceSets {
         main {
             java {
-                srcDirs = ["${portalApiGeneratedSrcDir}/src/main/java"]
+                srcDirs = ["src/main/java",
+                           "${portalApiGeneratedSrcDir}/src/main/java"]
             }
         }
     }
@@ -115,7 +116,8 @@ configure(feignModule) {
     sourceSets {
         main {
             java {
-                srcDirs = ["${portalApiGeneratedSrcDir}/src/main/java"]
+                srcDirs = ["src/main/java",
+                           "${portalApiGeneratedSrcDir}/src/main/java"]
             }
         }
     }
@@ -161,7 +163,8 @@ configure(okHttpModule) {
     sourceSets {
         main {
             java {
-                srcDirs = ["${portalApiGeneratedSrcDir}/src/main/java"]
+                srcDirs = ["src/main/java",
+                           "${portalApiGeneratedSrcDir}/src/main/java"]
             }
         }
     }

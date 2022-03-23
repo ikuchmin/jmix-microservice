@@ -10,11 +10,4 @@
       </configuration>
     </facet>
   </component>
-  <component name="JmixProjectModulesStateV2">
-    <option name="moduleState">
-      <JmixModuleStateV2>
-        <option name="moduleName" value="employee-service-api-feign-client" />
-      </JmixModuleStateV2>
-    </option>
-  </component>
 </module>

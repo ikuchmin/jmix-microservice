@@ -11,29 +11,9 @@
     </facet>
   </component>
   <component name="JmixProjectModulesStateV2">
-    <option name="hasState" value="true" />
     <option name="moduleState">
       <JmixModuleStateV2>
-        <option name="artifactGroup" value="jmix-microservices.employee-service" />
-        <option name="artifactName" value="employee-service" />
-        <option name="artifactVersion" value="1.4.0-SNAPSHOT" />
-        <option name="bomVersion" value="1.2.1" />
-        <option name="buildFilePath" value="$MODULE_DIR$/../../../../employee-service/employee-service-api/build.gradle" />
-        <option name="buildScriptDependencies">
-          <Dependency configuration="classpath" group="org.openapitools" name="openapi-generator-gradle-plugin" version="5.4.0" />
-          <Dependency configuration="classpath" group="org.springframework.boot" name="spring-boot-gradle-plugin" version="2.6.4" />
-          <Dependency configuration="classpath" group="io.spring.gradle" name="dependency-management-plugin" version="1.0.11.RELEASE" />
-        </option>
-        <option name="buildSystemName" value="Gradle" />
-        <option name="jmixVersion" value="1.2.1" />
-        <option name="mavenLocalURI" value="file:$MAVEN_REPOSITORY$/" />
         <option name="moduleName" value="employee-service-api" />
-        <option name="projectId" value="empl" />
-        <option name="rootBuildFilePath" value="$MODULE_DIR$/../../../../build.gradle" />
-        <option name="rootProjectName" value="jmix-microservices" />
-        <option name="stateBuildScriptRepositories">
-          <Repository url="https://repo.maven.apache.org/maven2/" />
-        </option>
       </JmixModuleStateV2>
     </option>
   </component>

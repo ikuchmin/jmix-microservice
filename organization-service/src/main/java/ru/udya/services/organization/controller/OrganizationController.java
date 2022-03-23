@@ -3,17 +3,23 @@ package ru.udya.services.organization.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import ru.udya.services.employee.api.client.EmployeeApiClient;
 import ru.udya.services.organization.client.DepartmentClient;
-import ru.udya.services.organization.client.EmployeeClient;
+import ru.udya.services.organization.controller.mapper.EmployeeMapper;
+import ru.udya.services.organization.model.Employee;
 import ru.udya.services.organization.model.Organization;
 import ru.udya.services.organization.repository.OrganizationRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Collections.emptyList;
 
 @RestController
 public class OrganizationController {
@@ -27,7 +33,7 @@ public class OrganizationController {
 	DepartmentClient departmentClient;
 
 	@Autowired
-	EmployeeClient employeeClient;
+	EmployeeApiClient employeeClient;
 	
 	@PostMapping
 	public Organization add(@RequestBody Organization organization) {
@@ -67,7 +73,16 @@ public class OrganizationController {
 	public Organization findByIdWithEmployees(@PathVariable("id") Long id) {
 		LOGGER.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);
-		organization.setEmployees(employeeClient.findByOrganization(organization.getId()));
+
+		var foundEmployeesResponse = employeeClient.findByOrganization(organization.getId());
+
+		//noinspection ConstantConditions
+		List<Employee> foundEmployees = foundEmployeesResponse.getBody().stream()
+					.map(EmployeeMapper.INSTANCE::employeeDtoToEmployee)
+					.collect(Collectors.toList());
+
+		organization.setEmployees(foundEmployees);
+
 		return organization;
 	}
 	

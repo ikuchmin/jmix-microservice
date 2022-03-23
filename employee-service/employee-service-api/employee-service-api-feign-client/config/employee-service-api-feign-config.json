@@ -1,13 +1,13 @@
 {
-  "apiPackage": "ru.udya.services.employee.api.controller",
+  "apiPackage": "ru.udya.services.employee.api.client",
   "modelPackage": "ru.udya.services.employee.api.model",
   "invokerPackage": "ru.udya.services.employee.api.invoker",
+  "configPackage": "ru.udya.services.employee.api.config",
   "modelFilesConstrainedTo": ["Error"],
   "useRuntimeException": true,
   "library": "spring-cloud",
   "dateLibrary": "java8",
-  "java8": true,
   "interfaceOnly": true,
-  "delegatePattern": true,
+  "java8": true,
   "useTags": true
 }
