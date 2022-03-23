@@ -21,6 +21,8 @@
         <option name="buildFilePath" value="$MODULE_DIR$/../../../../employee-service/employee-service-api/build.gradle" />
         <option name="buildScriptDependencies">
           <Dependency configuration="classpath" group="org.openapitools" name="openapi-generator-gradle-plugin" version="5.4.0" />
+          <Dependency configuration="classpath" group="org.springframework.boot" name="spring-boot-gradle-plugin" version="2.6.4" />
+          <Dependency configuration="classpath" group="io.spring.gradle" name="dependency-management-plugin" version="1.0.11.RELEASE" />
         </option>
         <option name="buildSystemName" value="Gradle" />
         <option name="jmixVersion" value="1.2.1" />

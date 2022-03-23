@@ -1,0 +1,13 @@
+{
+  "apiPackage": "ru.udya.services.employee.api.controller",
+  "modelPackage": "ru.udya.services.employee.api.model",
+  "invokerPackage": "ru.udya.services.employee.api.invoker",
+  "modelFilesConstrainedTo": ["Error"],
+  "useRuntimeException": true,
+  "library": "okhttp-gson",
+  "serializableModel": true,
+  "dateLibrary": "java8",
+  "java8": true,
+  "interfaceOnly": true,
+  "delegatePattern": true
+}

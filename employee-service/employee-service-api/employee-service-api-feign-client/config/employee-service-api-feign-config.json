@@ -1,7 +1,7 @@
 {
-  "apiPackage": "ru.hse.careerapi.api",
-  "modelPackage": "ru.hse.careerapi.model",
-  "invokerPackage": "ru.hse.careerapi.api.invoker",
+  "apiPackage": "ru.udya.services.employee.api.controller",
+  "modelPackage": "ru.udya.services.employee.api.model",
+  "invokerPackage": "ru.udya.services.employee.api.invoker",
   "modelFilesConstrainedTo": ["Error"],
   "useRuntimeException": true,
   "library": "spring-cloud",

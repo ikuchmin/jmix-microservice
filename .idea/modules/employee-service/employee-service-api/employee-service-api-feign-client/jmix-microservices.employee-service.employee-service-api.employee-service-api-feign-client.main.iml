@@ -5,27 +5,27 @@
     <option name="moduleState">
       <JmixModuleStateV2>
         <option name="artifactGroup" value="ru.hse" />
-        <option name="artifactName" value="employee-service-api-server" />
+        <option name="artifactName" value="employee-service-api-feign-client" />
         <option name="artifactVersion" value="1.4.0-SNAPSHOT" />
         <option name="bomVersion" value="1.2.1" />
-        <option name="buildFilePath" value="$MODULE_DIR$/../../../../../employee-service/employee-service-api/employee-service-api-server/build.gradle" />
+        <option name="buildFilePath" value="$MODULE_DIR$/../../../../../employee-service/employee-service-api/employee-service-api-feign-client/build.gradle" />
         <option name="buildSystemName" value="Gradle" />
         <option name="dependencies">
-          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-web" />
           <Dependency configuration="implementation" group="org.springframework.data" name="spring-data-commons" />
+          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-validation" />
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-openfeign" />
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-oauth2" version="2.2.5.RELEASE" />
           <Dependency configuration="implementation" group="org.springdoc" name="springdoc-openapi-ui" version="1.6.4" />
           <Dependency configuration="implementation" group="com.google.code.findbugs" name="jsr305" version="3.0.2" />
-          <Dependency configuration="implementation" group="com.fasterxml.jackson.dataformat" name="jackson-dataformat-yaml" />
           <Dependency configuration="implementation" group="com.fasterxml.jackson.datatype" name="jackson-datatype-jsr310" />
           <Dependency configuration="implementation" group="org.openapitools" name="jackson-databind-nullable" version="0.2.2" />
-          <Dependency configuration="implementation" group="com.fasterxml.jackson.core" name="jackson-databind" />
-          <Dependency configuration="testImplementation" group="org.springframework.boot" name="spring-boot-starter-validation" />
+          <Dependency configuration="testImplementation" group="org.springframework.boot" name="spring-boot-starter-test" />
         </option>
-        <option name="jarFile" value="$MODULE_DIR$/../../../../../employee-service/employee-service-api/employee-service-api-server/build/libs/employee-service-api-server-1.4.0-SNAPSHOT-plain.jar" />
+        <option name="jarFile" value="$MODULE_DIR$/../../../../../employee-service/employee-service-api/employee-service-api-feign-client/build/libs/employee-service-api-feign-client-1.4.0-SNAPSHOT-plain.jar" />
         <option name="jmixVersion" value="1.2.1" />
         <option name="mavenLocal" value="true" />
         <option name="mavenLocalURI" value="file:$MAVEN_REPOSITORY$/" />
-        <option name="moduleName" value="employee-service-api-server" />
+        <option name="moduleName" value="employee-service-api-feign-client" />
         <option name="projectId" value="empl" />
         <option name="rootBuildFilePath" value="$MODULE_DIR$/../../../../../build.gradle" />
         <option name="rootProjectName" value="jmix-microservices" />
