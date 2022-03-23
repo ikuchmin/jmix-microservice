@@ -1,8 +1,4 @@
 rootProject.name = 'jmix-microservices'
-include 'department-service'
-include 'employee-service'
-include 'organization-service'
-include 'discovery-service'
-include 'admin-service'
-include 'config-service'
-include 'gateway-service'
+
+fileTree('.') { include '**/build.gradle'; exclude 'build.gradle' } // Exclude the root build file.
+.collect {relativePath(it.parent).replace(File.separator, ':')}.each { include(it) }
