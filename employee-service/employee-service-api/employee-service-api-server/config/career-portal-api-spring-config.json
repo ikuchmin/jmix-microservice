@@ -4,7 +4,7 @@
   "invokerPackage": "ru.hse.careerapi.api.invoker",
   "modelFilesConstrainedTo": ["Error"],
   "useRuntimeException": true,
-  "library": "spring-mvc",
+  "library": "spring-cloud",
   "dateLibrary": "java8",
   "java8": true,
   "interfaceOnly": true,
