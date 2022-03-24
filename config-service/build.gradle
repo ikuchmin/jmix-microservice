@@ -33,3 +33,5 @@ dependencyManagement {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+task distribution(dependsOn: bootJar)

@@ -69,3 +69,5 @@ dependencyManagement {
 test {
     useJUnitPlatform()
 }
+
+task distribution(dependsOn: bootJar)

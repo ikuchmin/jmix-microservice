@@ -104,6 +104,8 @@ configure(serverModule) {
     }
 
     compileJava.dependsOn generateJavaServerSources
+
+    task distribution(dependsOn: jar)
 }
 
 configure(feignModule) {
@@ -154,6 +156,8 @@ configure(feignModule) {
     }
 
     compileJava.dependsOn generateJavaClientSources
+
+    task distribution(dependsOn: jar)
 }
 
 configure(okHttpModule) {
@@ -189,4 +193,6 @@ configure(okHttpModule) {
     }
 
     compileJava.dependsOn generateJavaClientSources
+
+    task distribution(dependsOn: jar)
 }
