@@ -132,7 +132,6 @@ configure(feignModule) {
         testImplementation "org.springframework.boot:spring-boot-starter-test"
 
         implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
-        implementation "org.springframework.cloud:spring-cloud-starter-oauth2:2.2.5.RELEASE"
 
         implementation "org.springdoc:springdoc-openapi-ui:1.6.4"
         implementation "com.google.code.findbugs:jsr305:3.0.2"

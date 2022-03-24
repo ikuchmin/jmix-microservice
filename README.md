@@ -11,9 +11,10 @@ applications is with IDEs like IntelliJ IDEA or Eclipse.
 
 ### Run
 
-Use bootJar task for building runnable jar artifact.
+Use `distribution` task for building jar or runnable jar depending on type project.
 
-Use docker-compose to build and run all services 
+Use docker-compose to build and run all services. Do not forget using rebuild 
+and recreate docker-compose flags 
 
 ## Architecture
 

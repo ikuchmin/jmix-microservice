@@ -29,3 +29,12 @@ management:
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  level:
+    feign: info
+    org:
+      springframework:
+        web: info
+    ru:
+      udya:
+        services:
+          organization: info
