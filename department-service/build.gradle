@@ -29,6 +29,8 @@ ext {
 }
 
 dependencies {
+    implementation project(':employee-service:employee-service-api:employee-service-api-feign-client')
+
     implementation 'io.jmix.core:jmix-core-starter'
     implementation 'io.jmix.data:jmix-eclipselink-starter'
     implementation('io.jmix.rest:jmix-rest-starter')
@@ -45,11 +47,15 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+
     runtimeOnly 'org.hsqldb:hsqldb'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 }
 
 

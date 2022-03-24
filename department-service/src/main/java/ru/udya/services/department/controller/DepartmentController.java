@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.udya.services.department.client.EmployeeClient;
+import ru.udya.services.department.controller.mapper.EmployeeMapper;
 import ru.udya.services.department.model.Department;
 import ru.udya.services.department.repository.DepartmentRepository;
+import ru.udya.services.employee.api.client.EmployeeApiClient;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/rest/public")
@@ -24,7 +26,7 @@ public class DepartmentController {
 	@Autowired
 	DepartmentRepository repository;
 	@Autowired
-	EmployeeClient employeeClient;
+	EmployeeApiClient employeeClient;
 	
 	@PostMapping("/")
 	public Department add(@RequestBody Department department) {
@@ -54,7 +56,19 @@ public class DepartmentController {
 	public List<Department> findByOrganizationWithEmployees(@PathVariable("organizationId") Long organizationId) {
 		LOGGER.info("Department find: organizationId={}", organizationId);
 		List<Department> departments = repository.findByOrganization(organizationId);
-		departments.forEach(d -> d.setEmployees(employeeClient.findByDepartment(d.getId())));
+
+
+		for (Department d : departments) {
+			var foundEmployeesResponse  = employeeClient.findByDepartment(d.getId());
+
+			//noinspection ConstantConditions
+			var foundEmployees = foundEmployeesResponse.getBody().stream()
+					.map(EmployeeMapper.INSTANCE::employeeDtoToEmployee)
+					.collect(Collectors.toList());
+
+			d.setEmployees(foundEmployees);
+		}
+
 		return departments;
 	}
 	

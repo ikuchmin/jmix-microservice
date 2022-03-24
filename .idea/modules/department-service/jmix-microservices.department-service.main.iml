@@ -25,6 +25,7 @@
         </option>
         <option name="buildSystemName" value="Gradle" />
         <option name="dependencies">
+          <Dependency configuration="implementation" group="ru.hse" name="employee-service-api-feign-client" version="1.4.0-SNAPSHOT" />
           <Dependency configuration="implementation" group="io.jmix.core" name="jmix-core-starter" />
           <Dependency configuration="implementation" group="io.jmix.data" name="jmix-eclipselink-starter" />
           <Dependency configuration="implementation" group="io.jmix.rest" name="jmix-rest-starter" />
@@ -39,6 +40,7 @@
           <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-netflix-eureka-client" />
           <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-openfeign" />
           <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-sleuth" />
+          <Dependency configuration="implementation" group="org.mapstruct" name="mapstruct" version="1.4.2.Final" />
           <Dependency configuration="runtimeOnly" group="org.hsqldb" name="hsqldb" />
           <Dependency configuration="testImplementation" group="org.springframework.boot" name="spring-boot-starter-test">
             <ExcludeRule group="org.junit.vintage" module="junit-vintage-engine" />

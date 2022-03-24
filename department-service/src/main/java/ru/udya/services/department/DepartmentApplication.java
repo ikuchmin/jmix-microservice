@@ -20,7 +20,7 @@ import ru.udya.services.department.repository.DepartmentRepository;
 import javax.sql.DataSource;
 
 @EnableEurekaClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"ru.udya.services.department", "ru.udya.services.employee.api.client"})
 @SpringBootApplication
 public class DepartmentApplication {
 
