@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/rest/public")
 public class DepartmentController implements DepartmentApi {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);

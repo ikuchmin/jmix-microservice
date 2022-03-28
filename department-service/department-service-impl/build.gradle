@@ -59,7 +59,6 @@ dependencies {
     }
 
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
-    implementation("org.postgresql:postgresql")
 }
 
 
