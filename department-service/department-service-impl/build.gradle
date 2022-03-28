@@ -1,0 +1,77 @@
+plugins {
+    id 'io.jmix' version '1.2.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'org.springframework.boot'
+
+jmix {
+    bomVersion = '1.2.1'
+    projectId = 'depa'
+}
+
+group = 'ru.udya.services'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url 'https://global.repo.jmix.io/repository/public'
+    }
+}
+
+ext {
+    set('springBootAdminVersion', "2.6.2")
+    set('springCloudVersion', "2021.0.1")
+}
+
+dependencies {
+    implementation project(':department-service:department-service-api:department-service-api-server')
+    implementation project(':employee-service:employee-service-api:employee-service-api-webclient-client')
+
+    implementation 'io.jmix.core:jmix-core-starter'
+    implementation 'io.jmix.data:jmix-eclipselink-starter'
+    implementation('io.jmix.rest:jmix-rest-starter')
+    implementation 'io.jmix.security:jmix-security-starter'
+    implementation 'io.jmix.security:jmix-security-data-starter'
+    implementation('io.jmix.security:jmix-security-oauth2-starter')
+    implementation 'io.jmix.localfs:jmix-localfs-starter'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    implementation 'de.codecentric:spring-boot-admin-starter-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+
+    runtimeOnly 'org.hsqldb:hsqldb'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    implementation("org.postgresql:postgresql")
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task distribution(dependsOn: bootJar)

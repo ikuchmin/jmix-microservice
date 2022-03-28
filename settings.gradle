@@ -5,5 +5,5 @@ fileTree('.') {
     exclude '**/build/**/build.gradle' // Exclude generated sources
     exclude 'build.gradle' // Exclude the root build file
 }
-.collect {relativePath(it.parent).replace(File.separator, ':')}
-.each { include(it) }
+        .collect { relativePath(it.parent).replace(File.separator, ':') }
+        .each { include(it) }

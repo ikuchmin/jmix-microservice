@@ -106,3 +106,12 @@ services:
     depends_on:
       gateway:
         condition: service_healthy
+  database:
+    image: "postgres:latest"
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=depa

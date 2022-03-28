@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseDriversConfigurationState">
+    <drivers>
+      <db-driver id="org.hsqldb.jdbc.JDBCDriver">
+        <library url="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.5.2/d8ec10f8ed2d9ac8c400208f4f78a546b116afe/hsqldb-2.5.2.jar" />
+      </db-driver>
+      <db-driver id="org.postgresql.Driver" version="42.2.5" />
+    </drivers>
+  </component>
+</project>

@@ -39,11 +39,11 @@ public class EmployeeController implements EmployeeApi {
 		LOGGER.info("Employee find");
 		var foundEmployees = repository.findAll();
 
-		var foundEmployeesDto = foundEmployees.stream()
+		var foundEmployeeDtos = foundEmployees.stream()
 				.map(EmployeeMapper.INSTANCE::employeeToEmployeeDto)
 				.collect(Collectors.toList());
 
-		return ResponseEntity.ok(foundEmployeesDto);
+		return ResponseEntity.ok(foundEmployeeDtos);
 	}
 
 	@Override

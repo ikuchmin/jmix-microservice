@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="Jmix EclipseLink" />
+        <datasource-mapping />
+        <naming-strategy-map />
+      </configuration>
+    </facet>
+  </component>
+  <component name="JmixProjectModulesStateV2">
+    <option name="hasState" value="true" />
+    <option name="moduleState">
+      <JmixModuleStateV2>
+        <option name="artifactGroup" value="ru.udya.services" />
+        <option name="artifactName" value="department-service-impl" />
+        <option name="artifactVersion" value="0.0.1-SNAPSHOT" />
+        <option name="bomVersion" value="1.2.1" />
+        <option name="buildFilePath" value="$MODULE_DIR$/../../../../department-service/department-service-impl/build.gradle" />
+        <option name="buildScriptDependencies">
+          <Dependency configuration="classpath" group="io.jmix" name="io.jmix.gradle.plugin" version="1.2.0" />
+          <Dependency configuration="classpath" group="io.spring.dependency-management" name="io.spring.dependency-management.gradle.plugin" version="1.0.11.RELEASE" />
+        </option>
+        <option name="buildSystemName" value="Gradle" />
+        <option name="dependencies">
+          <Dependency configuration="implementation" group="ru.hse" name="department-service-api-server" version="1.4.0-SNAPSHOT" />
+          <Dependency configuration="implementation" group="ru.hse" name="employee-service-api-webclient-client" version="1.4.0-SNAPSHOT" />
+          <Dependency configuration="implementation" group="io.jmix.core" name="jmix-core-starter">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="io.jmix.data" name="jmix-eclipselink-starter">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="io.jmix.rest" name="jmix-rest-starter">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="io.jmix.security" name="jmix-security-starter">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="io.jmix.security" name="jmix-security-data-starter">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="io.jmix.security" name="jmix-security-oauth2-starter">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="io.jmix.localfs" name="jmix-localfs-starter">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-actuator">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-web">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-webflux">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="de.codecentric" name="spring-boot-admin-starter-client">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-config">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-netflix-eureka-client">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-openfeign">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-sleuth">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.mapstruct" name="mapstruct" version="1.4.2.Final">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="implementation" group="org.postgresql" name="postgresql">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+          <Dependency configuration="testImplementation" group="org.springframework.boot" name="spring-boot-starter-test">
+            <ExcludeRule group="org.junit.vintage" module="junit-vintage-engine" />
+          </Dependency>
+          <Dependency configuration="widgets" group="javax.validation" name="validation-api" version="1.0.0.GA" />
+          <Dependency configuration="implementation platform" group="io.jmix.bom" name="jmix-bom" version="1.2.1">
+            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
+            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
+            <ExcludeRule group="javax.servlet" module="servlet-api" />
+            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
+            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
+            <ExcludeRule group="commons-logging" module="commons-logging" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
+            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
+            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
+          </Dependency>
+        </option>
+        <option name="jarFile" value="$MODULE_DIR$/../../../../department-service/department-service-impl/build/libs/department-service-impl-0.0.1-SNAPSHOT-plain.jar" />
+        <option name="jmixVersion" value="1.2.1" />
+        <option name="mavenLocal" value="true" />
+        <option name="mavenLocalURI" value="file:$MAVEN_REPOSITORY$/" />
+        <option name="moduleName" value="department-service-impl" />
+        <option name="projectId" value="depa" />
+        <option name="rootBuildFilePath" value="$MODULE_DIR$/../../../../build.gradle" />
+        <option name="rootProjectName" value="jmix-microservices" />
+        <option name="stateBuildScriptRepositories">
+          <Repository url="https://plugins.gradle.org/m2" />
+        </option>
+        <option name="stateRepositories">
+          <Repository url="https://repo.maven.apache.org/maven2/" />
+          <Repository url="https://global.repo.jmix.io/repository/public" />
+        </option>
+      </JmixModuleStateV2>
+    </option>
+  </component>
+</module>
