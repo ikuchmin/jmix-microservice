@@ -27,9 +27,6 @@ import javax.sql.DataSource;
 
 import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 
-@EnableEurekaClient
-@EnableFeignClients(basePackages = {"ru.udya.services.department"})
-@Import(EmployeeApiClientConfiguration.class)
 @SpringBootApplication
 public class DepartmentApplication {
 
@@ -38,14 +35,6 @@ public class DepartmentApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DepartmentApplication.class, args);
-    }
-
-
-    @Bean
-    @Scope(SCOPE_PROTOTYPE)
-    @LoadBalanced
-    public WebClient.Builder loadBalancedWebClientBuilder() {
-        return WebClient.builder();
     }
 
     @Bean
