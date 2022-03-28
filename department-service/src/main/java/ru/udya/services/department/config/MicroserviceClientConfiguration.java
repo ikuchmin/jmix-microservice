@@ -14,7 +14,7 @@ import static org.springframework.beans.factory.config.ConfigurableBeanFactory.S
 @EnableEurekaClient
 @Import(EmployeeApiClientConfiguration.class)
 @EnableFeignClients(basePackages = {"ru.udya.services.department"})
-public class DepartmentMicroserviceClientConfiguration {
+public class MicroserviceClientConfiguration {
 
     @Bean
     @Scope(SCOPE_PROTOTYPE)
