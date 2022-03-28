@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.udya.services.department.controller.mapper.EmployeeMapper;
 import ru.udya.services.department.model.Department;
 import ru.udya.services.department.repository.DepartmentRepository;
-import ru.udya.services.employee.api.client.EmployeeApiClient;
+import ru.udya.services.employee.api.client.EmployeeApi;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,8 +25,9 @@ public class DepartmentController {
 	
 	@Autowired
 	DepartmentRepository repository;
+
 	@Autowired
-	EmployeeApiClient employeeClient;
+	EmployeeApi employeeClient;
 	
 	@PostMapping("/")
 	public Department add(@RequestBody Department department) {
@@ -61,10 +62,15 @@ public class DepartmentController {
 		for (Department d : departments) {
 			var foundEmployeesResponse  = employeeClient.findByDepartment(d.getId());
 
-			//noinspection ConstantConditions
-			var foundEmployees = foundEmployeesResponse.getBody().stream()
+			var foundEmployees = foundEmployeesResponse
 					.map(EmployeeMapper.INSTANCE::employeeDtoToEmployee)
-					.collect(Collectors.toList());
+					.collect(Collectors.toList()).block();
+
+
+//			//noinspection ConstantConditions
+//			var foundEmployees = foundEmployeesResponse.getBody().stream()
+//					.map(EmployeeMapper.INSTANCE::employeeDtoToEmployee)
+//					.collect(Collectors.toList());
 
 			d.setEmployees(foundEmployees);
 		}

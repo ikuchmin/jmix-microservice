@@ -1,0 +1,13 @@
+{
+  "apiPackage": "ru.udya.services.employee.api.client",
+  "modelPackage": "ru.udya.services.employee.api.model",
+  "invokerPackage": "ru.udya.services.employee.api.invoker",
+  "configPackage": "ru.udya.services.employee.api.config",
+  "modelFilesConstrainedTo": ["Error"],
+  "useRuntimeException": true,
+  "library": "webclient",
+  "dateLibrary": "java8",
+  "java8": true,
+  "interfaceOnly": true,
+  "delegatePattern": true
+}
