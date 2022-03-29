@@ -7,7 +7,7 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.4.2.Final/e55bd90d51cddd638c07d5bd89fc7535d4e3d069/mapstruct-processor-1.4.2.Final.jar" />
         </processorPath>
-        <module name="jmix-microservices.organization-service.main" />
+        <module name="jmix-microservices.organization-service.organization-service-impl.main" />
         <module name="jmix-microservices.department-service.department-service-impl.main" />
         <module name="jmix-microservices.employee-service.employee-service-impl.main" />
       </profile>

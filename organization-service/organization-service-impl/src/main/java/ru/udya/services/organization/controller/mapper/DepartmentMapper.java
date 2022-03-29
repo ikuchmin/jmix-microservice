@@ -1,11 +1,9 @@
-package ru.udya.services.department.controller.mapper;
+package ru.udya.services.organization.controller.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import ru.udya.services.department.model.Department;
-import ru.udya.services.department.model.Employee;
 import ru.udya.services.department.api.model.DepartmentDto;
-import ru.udya.services.department.api.model.EmployeeDto;
+import ru.udya.services.organization.model.Department;
 
 @Mapper
 public interface DepartmentMapper {

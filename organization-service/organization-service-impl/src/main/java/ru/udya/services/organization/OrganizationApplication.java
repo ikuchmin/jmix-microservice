@@ -9,7 +9,6 @@ import ru.udya.services.organization.model.Organization;
 import ru.udya.services.organization.repository.OrganizationRepository;
 
 @EnableEurekaClient
-@EnableFeignClients(basePackages = {"ru.udya.services.organization", "ru.udya.services.employee.api.client"})
 @SpringBootApplication
 public class OrganizationApplication {
 

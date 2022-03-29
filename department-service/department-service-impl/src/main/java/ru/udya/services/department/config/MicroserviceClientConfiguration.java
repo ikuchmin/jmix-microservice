@@ -12,10 +12,9 @@ import ru.udya.services.employee.api.config.EmployeeApiClientConfiguration;
 
 import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 
-@EnableEurekaClient
+@Configuration
 @Import(EmployeeApiClientConfiguration.class)
 @EnableFeignClients(basePackages = {"ru.udya.services.department"})
-@Configuration
 public class MicroserviceClientConfiguration {
 
     @Bean

@@ -193,17 +193,7 @@
             <ExcludeRule group="com.sun.jersey" module="jersey-core" />
             <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
           </Dependency>
-          <Dependency configuration="implementation" group="org.postgresql" name="postgresql">
-            <ExcludeRule group="com.github.vlsi.compactmap" module="compactmap" />
-            <ExcludeRule group="com.sun.jersey.contribs" module="jersey-apache-client4" />
-            <ExcludeRule group="javax.servlet" module="servlet-api" />
-            <ExcludeRule group="com.netflix.archaius" module="archaius-core" />
-            <ExcludeRule group="com.github.andrewoma.dexx" module="dexx-collections" />
-            <ExcludeRule group="commons-logging" module="commons-logging" />
-            <ExcludeRule group="com.sun.jersey" module="jersey-client" />
-            <ExcludeRule group="com.sun.jersey" module="jersey-core" />
-            <ExcludeRule group="io.zipkin.reporter2" module="zipkin-reporter-brave" />
-          </Dependency>
+          <Dependency configuration="runtimeOnly" group="org.hsqldb" name="hsqldb" />
           <Dependency configuration="testImplementation" group="org.springframework.boot" name="spring-boot-starter-test">
             <ExcludeRule group="org.junit.vintage" module="junit-vintage-engine" />
           </Dependency>

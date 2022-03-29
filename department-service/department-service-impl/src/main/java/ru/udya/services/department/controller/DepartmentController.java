@@ -62,7 +62,6 @@ public class DepartmentController implements DepartmentApi {
 	public ResponseEntity<DepartmentDto> findById(Long id) {
 		LOGGER.info("Department find: id={}", id);
 
-
 		var foundDepartment = repository.findById(id);
 
 		DepartmentDto foundDepartmentDto = new DepartmentDto();

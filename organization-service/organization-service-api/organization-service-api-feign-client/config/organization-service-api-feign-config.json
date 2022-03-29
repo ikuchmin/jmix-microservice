@@ -1,0 +1,13 @@
+{
+  "apiPackage": "ru.udya.services.organization.api.client",
+  "modelPackage": "ru.udya.services.organization.api.model",
+  "invokerPackage": "ru.udya.services.organization.api.invoker",
+  "configPackage": "ru.udya.services.organization.api.config",
+  "modelFilesConstrainedTo": ["Error"],
+  "useRuntimeException": true,
+  "library": "spring-cloud",
+  "dateLibrary": "java8",
+  "interfaceOnly": true,
+  "java8": true,
+  "useTags": true
+}
