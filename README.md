@@ -28,6 +28,12 @@ This sample microservices-based system consists of the following modules:
 - **department-service** - a JMIX module containing the second of our sample microservices that allows to perform CRUD operation on in-memory repository of departments. It communicates with employee-service.
 - **organization-service** - a module containing the third of our sample microservices that allows to perform CRUD operation on in-memory repository of organizations. It communicates with both employee-service and department-service.
 
+### Communication
+
+- Department service -> Employee service using WebClient
+- Organization service -> Employee service using Feign client
+- Organization service -> Department service using Feign client
+
 The following picture illustrates the architecture described above.
 
 ![Architecture](https://github.com/ikuchmin/jmix-microservice/raw/master/assets/img/architecture.png)
