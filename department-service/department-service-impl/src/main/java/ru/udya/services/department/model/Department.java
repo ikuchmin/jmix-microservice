@@ -1,9 +1,11 @@
 package ru.udya.services.department.model;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Department {
+public class Department implements Serializable {
 
 	private Long id;
 	private Long organizationId;

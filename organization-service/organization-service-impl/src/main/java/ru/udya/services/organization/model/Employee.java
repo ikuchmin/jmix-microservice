@@ -1,6 +1,8 @@
 package ru.udya.services.organization.model;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 
 	private Long id;
 	private String name;
