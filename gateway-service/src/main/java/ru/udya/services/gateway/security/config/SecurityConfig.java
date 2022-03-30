@@ -16,6 +16,7 @@ public class SecurityConfig {
         http
                 .authorizeExchange(ae -> ae
                         .pathMatchers("/auth/realms/**").permitAll()
+                        .pathMatchers("/actuator/**").permitAll()
                         .anyExchange().authenticated())
                 .oauth2ResourceServer(OAuth2ResourceServerSpec::jwt)
                 .csrf(CsrfSpec::disable);

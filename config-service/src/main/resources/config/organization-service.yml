@@ -6,6 +6,12 @@ spring:
     admin:
       client:
         url: ${ADMIN_SERVER:http://localhost:8090/}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth}/realms/master
+          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/.well-known/openid-configuration
 
 eureka:
   instance:
