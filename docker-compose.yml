@@ -44,9 +44,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
-    depends_on:
-      config:
-        condition: service_healthy
+#    depends_on:
+#      config:
+#        condition: service_healthy
 
   gateway:
     hostname: gateway
@@ -87,9 +87,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
-    depends_on:
-      discovery:
-        condition: service_healthy
+#    depends_on:
+#      discovery:
+#        condition: service_healthy
 
   employee:
     hostname: employee
@@ -125,10 +125,13 @@ services:
         -DADMIN_SERVER=http://admin:8090/
         -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
+        -DAUTH_SERVER=http://auth:8080/auth/
+    ports:
+      - "5005:5005"
     mem_limit: 512MB
-    depends_on:
-      gateway:
-        condition: service_healthy
+#    depends_on:
+#      gateway:
+#        condition: service_healthy
 
 #  database:
 #    image: "postgres:latest"

@@ -10,8 +10,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth}/realms/master
-          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/.well-known/openid-configuration
+          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/test
+#          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master/.well-known/openid-configuration
 
 eureka:
   instance:
@@ -37,10 +37,6 @@ logging:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
   level:
     feign: info
-    org:
-      springframework:
-        web: info
-    ru:
-      udya:
-        services:
-          organization: info
+    org.springframework.web: info
+    org.springframework.security: debug
+    ru.udya.services.organization: info

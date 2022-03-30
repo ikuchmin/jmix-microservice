@@ -33,7 +33,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/protocol/openid-connect/certs
+          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/test/protocol/openid-connect/certs
 #          ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/.well-known/openid-configuration
   cloud:
     gateway:
@@ -53,15 +53,21 @@ spring:
         - Path=/employee/**,
         filters:
         - RewritePath=/employee/(?<path>.*), /rest/public/$\{path}
+        - TokenRelay=
+        - RemoveRequestHeader=Cookie
       - id: department-service
         uri: lb://department-service
         predicates:
         - Path=/department/**
         filters:
         - RewritePath=/department/(?<path>.*), /rest/public/$\{path}
+        - TokenRelay=
+        - RemoveRequestHeader=Cookie
       - id: organization-service
         uri: lb://organization-service
         predicates:
         - Path=/organization/**
         filters:
         - RewritePath=/organization/(?<path>.*), /$\{path}
+        - TokenRelay=
+        - RemoveRequestHeader=Cookie
