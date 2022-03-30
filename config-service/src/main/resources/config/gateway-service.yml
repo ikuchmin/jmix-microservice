@@ -29,12 +29,24 @@ spring:
     admin:
       client:
         url: ${ADMIN_SERVER:http://localhost:8090/}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/protocol/openid-connect/certs
+#          ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/.well-known/openid-configuration
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
       routes:
+      - id: auth-service
+        uri: lb://auth-service
+        predicates:
+        - Path=/auth/**,
+        filters:
+        - RewritePath=/employee/(?<path>.*), /$\{path}
       - id: employee-service
         uri: lb://employee-service
         predicates:
