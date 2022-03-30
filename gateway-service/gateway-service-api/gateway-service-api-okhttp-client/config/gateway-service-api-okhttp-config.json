@@ -1,0 +1,13 @@
+{
+  "apiPackage": "ru.udya.services.gateway.api.controller",
+  "modelPackage": "ru.udya.services.gateway.api.model",
+  "invokerPackage": "ru.udya.services.gateway.api.invoker",
+  "modelFilesConstrainedTo": ["Error"],
+  "useRuntimeException": true,
+  "library": "okhttp-gson",
+  "serializableModel": true,
+  "dateLibrary": "java8",
+  "java8": true,
+  "interfaceOnly": true,
+  "delegatePattern": true
+}

@@ -1,3 +1,7 @@
+### JMIX ###
+.jmix
+jmix-studio.xml
+
 ### IntelliJ IDEA ###
 # User-specific stuff
 .idea/**/workspace.xml

@@ -1,0 +1,13 @@
+{
+  "apiPackage": "ru.udya.services.gateway.api.client",
+  "modelPackage": "ru.udya.services.gateway.api.model",
+  "invokerPackage": "ru.udya.services.gateway.api.invoker",
+  "configPackage": "ru.udya.services.gateway.api.config",
+  "modelFilesConstrainedTo": ["Error"],
+  "useRuntimeException": true,
+  "library": "webclient",
+  "dateLibrary": "java8",
+  "java8": true,
+  "interfaceOnly": true,
+  "delegatePattern": true
+}
