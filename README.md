@@ -16,6 +16,10 @@ Use `distribution` task for building jar or runnable jar depending on type proje
 Use docker-compose to build and run all services. Do not forget using rebuild 
 and recreate docker-compose flags 
 
+#### Configuration
+
+Add `client` to the auth server KeyCloak
+
 ## Architecture
 
 This sample microservices-based system consists of the following modules:
