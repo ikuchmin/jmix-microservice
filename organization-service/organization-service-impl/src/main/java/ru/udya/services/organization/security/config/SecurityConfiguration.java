@@ -16,11 +16,11 @@ import org.springframework.security.oauth2.jwt.SupplierJwtDecoder;
 
 @EnableWebSecurity
 @Configuration(proxyBeanMethods = false)
-public class OAuth2ResourceServerSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final OAuth2ResourceServerProperties.Jwt jwtProperties;
 
-    OAuth2ResourceServerSecurityConfiguration(OAuth2ResourceServerProperties properties) {
+    SecurityConfiguration(OAuth2ResourceServerProperties properties) {
         this.jwtProperties = properties.getJwt();
     }
 

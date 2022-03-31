@@ -23,7 +23,10 @@ management:
 logging:
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
-              
+  level:
+    org.springframework.web: info
+    org.springframework.security: debug
+
 spring:
   boot:
     admin:
@@ -33,7 +36,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/test/protocol/openid-connect/certs
+          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
+#          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master/protocol/openid-connect/certs
 #          ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/.well-known/openid-configuration
   cloud:
     gateway:

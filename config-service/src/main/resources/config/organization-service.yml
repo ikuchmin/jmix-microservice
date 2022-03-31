@@ -10,8 +10,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/test
-#          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master/.well-known/openid-configuration
+          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
 
 eureka:
   instance:
