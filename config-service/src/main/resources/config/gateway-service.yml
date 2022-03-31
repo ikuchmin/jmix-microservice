@@ -56,7 +56,7 @@ spring:
         predicates:
         - Path=/employee/**,
         filters:
-        - RewritePath=/employee/(?<path>.*), /rest/public/$\{path}
+        - RewritePath=/employee/(?<path>.*), /rest/$\{path}
         - TokenRelay=
         - RemoveRequestHeader=Cookie
       - id: department-service

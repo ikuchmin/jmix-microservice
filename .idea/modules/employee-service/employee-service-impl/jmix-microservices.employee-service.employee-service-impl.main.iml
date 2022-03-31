@@ -34,6 +34,8 @@
           <Dependency configuration="implementation" group="io.jmix.security" name="jmix-security-oauth2-starter" />
           <Dependency configuration="implementation" group="io.jmix.localfs" name="jmix-localfs-starter" />
           <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-web" />
+          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-security" />
+          <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-oauth2-resource-server" />
           <Dependency configuration="implementation" group="org.springframework.boot" name="spring-boot-starter-actuator" />
           <Dependency configuration="implementation" group="de.codecentric" name="spring-boot-admin-starter-client" />
           <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-config" />
