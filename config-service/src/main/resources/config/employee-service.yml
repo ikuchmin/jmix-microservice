@@ -34,6 +34,8 @@ management:
 jmix:
   core:
     available-locales: en
+  oidc:
+    use-default-ui-configuration: false
   rest:
     anonymous-url-patterns: /rest/docs/*
 
