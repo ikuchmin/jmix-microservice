@@ -6,6 +6,11 @@ spring:
     admin:
       client:
         url: ${ADMIN_SERVER:http://localhost:8090/}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
 
 eureka:
   instance:
@@ -29,6 +34,8 @@ management:
 jmix:
   core:
     available-locales: en
+  oidc:
+    use-default-ui-configuration: false
   rest:
     anonymous-url-patterns: /rest/docs/*
 
@@ -42,15 +49,7 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
   level:
-    eclipselink:
-      logging:
-        sql: info
-    io:
-      jmix: info
-    org:
-      springframework:
-        web: debug
-
-#        core:
-#          datastore: info
-#          AccessLogger: debug
+    io.jmix: debug
+    eclipselink.logging.sql: info
+    org.springframework.web: debug
+    org.springframework.security: debug

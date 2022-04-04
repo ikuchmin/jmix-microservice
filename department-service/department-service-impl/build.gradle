@@ -37,12 +37,14 @@ dependencies {
     implementation('io.jmix.rest:jmix-rest-starter')
     implementation 'io.jmix.security:jmix-security-starter'
     implementation 'io.jmix.security:jmix-security-data-starter'
-    implementation('io.jmix.security:jmix-security-oauth2-starter')
+//    implementation 'io.jmix.security:jmix-security-oauth2-starter' // do not forget to remove dep
     implementation 'io.jmix.localfs:jmix-localfs-starter'
+
+    implementation 'io.jmix.oidc:jmix-oidc-starter'
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux' // for webclient
 
     implementation 'de.codecentric:spring-boot-admin-starter-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'

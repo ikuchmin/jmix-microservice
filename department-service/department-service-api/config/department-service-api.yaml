@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 
 paths:
-  /rest/public/:
+  /rest/department/:
     get:
       summary: Find all Departments
       operationId: findAll
@@ -52,7 +52,7 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-  /rest/public/organization/{organizationId}:
+  /rest/department/organization/{organizationId}:
     get:
       summary: Find Department by Organization
       operationId: findByOrganization
@@ -81,7 +81,7 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-  /rest/public/organization/{organizationId}/with-employees:
+  /rest/department/organization/{organizationId}/with-employees:
     get:
       summary: Find Department by Organization with employees
       operationId: findByOrganizationWithEmployees
@@ -110,7 +110,7 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-  /rest/public/{id}:
+  /rest/department/{id}:
     get:
       summary: Find Department by Id
       operationId: findById
