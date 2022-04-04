@@ -50,13 +50,13 @@ spring:
         predicates:
         - Path=/auth/**,
         filters:
-        - RewritePath=/employee/(?<path>.*), /$\{path}
+        - RewritePath=/auth/(?<path>.*), /$\{path}
       - id: employee-service
         uri: lb://employee-service
         predicates:
         - Path=/employee/**,
         filters:
-        - RewritePath=/employee/(?<path>.*), /rest/$\{path}
+        - RewritePath=/employee/(?<path>.*), /rest/employee/$\{path}
         - TokenRelay=
         - RemoveRequestHeader=Cookie
       - id: department-service

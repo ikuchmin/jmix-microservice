@@ -52,7 +52,7 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-  /rest/public/department/{departmentId}:
+  /rest/employee/department/{departmentId}:
     get:
       summary: Find Employee by Department
       operationId: findByDepartment
@@ -81,7 +81,7 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-  /rest/public/organization/{organizationId}:
+  /rest/employee/organization/{organizationId}:
     get:
       summary: Find Employee by Organization
       operationId: findByOrganization
@@ -110,7 +110,7 @@ paths:
           description: Forbidden
         '404':
           description: Not Found
-  /rest/public/{id}:
+  /rest/employee/{id}:
     get:
       summary: Find Employee by Id
       operationId: findById
