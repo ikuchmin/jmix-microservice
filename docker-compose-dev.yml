@@ -25,9 +25,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6      
-    depends_on:
-      admin:
-        condition: service_healthy
+#    depends_on:
+#      admin:
+#        condition: service_healthy
   
   discovery:
     hostname: discovery
@@ -44,9 +44,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
-    depends_on:
-      config:
-        condition: service_healthy
+#    depends_on:
+#      config:
+#        condition: service_healthy
 
   gateway:
     hostname: gateway
@@ -59,17 +59,18 @@ services:
         -DAUTH_SERVER=http://auth:8080/auth/
     ports:
       - "8060:8060"
+#      - "5005:5005"
     mem_limit: 512MB
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:8060/actuator/health || exit 1
       interval: 10s
       timeout: 5s
       retries: 6      
-    depends_on:
-      discovery:
-        condition: service_healthy
-      auth:
-        condition: service_healthy
+#    depends_on:
+#      discovery:
+#        condition: service_healthy
+#      auth:
+#        condition: service_healthy
 
   auth:
     hostname: auth
@@ -87,9 +88,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
-    depends_on:
-      discovery:
-        condition: service_healthy
+#    depends_on:
+#      discovery:
+#        condition: service_healthy
 
   employee:
     hostname: employee
@@ -100,10 +101,12 @@ services:
         -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
         -DAUTH_SERVER=http://auth:8080/auth/
+#    ports:
+#      - "5005:5005"
     mem_limit: 512MB
-    depends_on:
-      gateway:
-        condition: service_healthy
+#    depends_on:
+#      gateway:
+#        condition: service_healthy
 
   department:
     hostname: department
@@ -114,10 +117,12 @@ services:
         -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
         -DAUTH_SERVER=http://auth:8080/auth/
+    ports:
+      - "5005:5005"
     mem_limit: 512MB
-    depends_on:
-      gateway:
-        condition: service_healthy
+#    depends_on:
+#      gateway:
+#        condition: service_healthy
 
   organization:
     hostname: organization
@@ -128,7 +133,19 @@ services:
         -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
         -DAUTH_SERVER=http://auth:8080/auth/
+#    ports:
+#      - "5005:5005"
     mem_limit: 512MB
-    depends_on:
-      gateway:
-        condition: service_healthy
+#    depends_on:
+#      gateway:
+#        condition: service_healthy
+
+#  database:
+#    image: "postgres:latest"
+#    ports:
+#      - "5432:5432"
+#    restart: on-failure
+#    environment:
+#      - POSTGRES_USER=root
+#      - POSTGRES_PASSWORD=root
+#      - POSTGRES_DB=depa

@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.ExchangeFunction;
 import reactor.core.publisher.Mono;
 import reactor.util.context.Context;
-import ru.udya.services.department.auth.jwt.ExtJmixJwtAuthenticationToken;
+import ru.udya.services.department.security.auth.jwt.ExtJmixJwtAuthenticationToken;
 import org.springframework.security.oauth2.server.resource.web.reactive.function.client.ServletBearerExchangeFilterFunction;
 
 import java.util.Map;

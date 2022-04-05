@@ -1,4 +1,4 @@
-package ru.udya.services.department.auth.jwt;
+package ru.udya.services.department.security.auth.jwt;
 
 import io.jmix.oidc.jwt.JmixJwtAuthenticationConverter;
 import io.jmix.oidc.jwt.JmixJwtAuthenticationToken;
@@ -24,9 +24,14 @@ public class ExtJmixJwtAuthenticationConverter extends JmixJwtAuthenticationConv
                 .build();
         DefaultOidcUser oidcUser = new DefaultOidcUser(Collections.emptyList(), oidcIdToken, usernameClaimName);
         JmixOidcUser jmixOidcUser = oidcUserMapper.toJmixUser(oidcUser);
+
+        // begin extension
         JmixJwtAuthenticationToken token = new ExtJmixJwtAuthenticationToken(jwt,
                 jmixOidcUser,
                 jmixOidcUser.getAuthorities());
+
+        // end extension
+
         return token;
     }
 

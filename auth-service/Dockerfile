@@ -6,4 +6,4 @@ EXPOSE 8080
 COPY build/libs/*.jar /app/app.jar
 ENV JAVA_OPTS=""
 ENTRYPOINT ["sh", "-c"]
-CMD ["exec java $JAVA_OPTS -jar app.jar"]
+CMD ["exec java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 $JAVA_OPTS -jar app.jar"]

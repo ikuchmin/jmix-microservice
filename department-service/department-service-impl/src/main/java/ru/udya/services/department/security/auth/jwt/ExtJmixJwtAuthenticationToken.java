@@ -1,4 +1,4 @@
-package ru.udya.services.department.auth.jwt;
+package ru.udya.services.department.security.auth.jwt;
 
 import io.jmix.oidc.jwt.JmixJwtAuthenticationToken;
 import io.jmix.oidc.user.JmixOidcUser;
@@ -22,7 +22,9 @@ public class ExtJmixJwtAuthenticationToken extends JmixJwtAuthenticationToken {
         super(jwt, principal, authorities);
     }
 
+    // begin extension
     public final Jwt getToken() {
         return this.token;
     }
+    // end extension
 }
