@@ -1,4 +1,4 @@
-package ru.udya.services.department.security.config;
+package ru.udya.services.employee.auth.config;
 
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.context.annotation.Bean;

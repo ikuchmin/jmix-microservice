@@ -18,12 +18,6 @@ import org.springframework.security.oauth2.jwt.SupplierJwtDecoder;
 @Configuration(proxyBeanMethods = false)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final OAuth2ResourceServerProperties.Jwt jwtProperties;
-
-    SecurityConfiguration(OAuth2ResourceServerProperties properties) {
-        this.jwtProperties = properties.getJwt();
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -31,22 +25,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         .antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
-    }
-
-    @Bean
-    SupplierJwtDecoder supplierJwtDecoder() {
-        return new SupplierJwtDecoder(this::jwtDecoder);
-    }
-
-    // Using custom jwtDecoder to avoid valida issuer. It is different
-    // for the jwt getting through gateway and openid configuration
-    // getting from auth service
-    private JwtDecoder jwtDecoder() {
-        var jwtDecoder = (NimbusJwtDecoder) JwtDecoders
-                .fromIssuerLocation(this.jwtProperties.getIssuerUri());
-
-        jwtDecoder.setJwtValidator(JwtValidators.createDefault());
-
-        return jwtDecoder;
     }
 }

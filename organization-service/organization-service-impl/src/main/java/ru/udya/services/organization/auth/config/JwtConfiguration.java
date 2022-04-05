@@ -1,4 +1,4 @@
-package ru.udya.services.employee.security.config;
+package ru.udya.services.organization.auth.config;
 
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +14,8 @@ public class JwtConfiguration {
 
     private final OAuth2ResourceServerProperties.Jwt jwtProperties;
 
-    JwtConfiguration(OAuth2ResourceServerProperties properties) {
-        this.jwtProperties = properties.getJwt();
+    JwtConfiguration(OAuth2ResourceServerProperties.Jwt jwtProperties) {
+        this.jwtProperties = jwtProperties;
     }
 
     @Bean
