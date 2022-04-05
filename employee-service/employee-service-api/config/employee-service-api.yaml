@@ -138,6 +138,11 @@ paths:
         '404':
           description: Not Found
 components:
+  securitySchemes:
+    BearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     EmployeeDto:
       type: object
@@ -158,3 +163,5 @@ components:
           format: int64
         position:
           type: string
+security:
+  - BearerAuth: []

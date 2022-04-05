@@ -431,6 +431,15 @@ paths:
         '404':
           description: Not Found
 components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    OpenID:
+      type: openIdConnect
+      openIdConnectUrl: http://localhost:8060/auth/realms/master/.well-known/openid-configuration
+
   schemas:
     EmployeeDto:
       type: object
@@ -487,3 +496,6 @@ components:
         name:
           type: string
       title: Organization
+security:
+  - BearerAuth: []
+  - OpenID: []

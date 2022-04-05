@@ -37,8 +37,6 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
-#          jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master/protocol/openid-connect/certs
-#          ${AUTH_SERVER:http://localhost:8080/auth}/realms/master/.well-known/openid-configuration
   cloud:
     gateway:
       discovery:
@@ -49,8 +47,6 @@ spring:
         uri: lb://auth-service
         predicates:
         - Path=/auth/**,
-#        filters:
-#        - RewritePath=/auth/(?<path>.*), /$\{path}
       - id: employee-service
         uri: lb://employee-service
         predicates:
