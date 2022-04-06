@@ -1,0 +1,51 @@
+server:
+  port: 8000
+main:
+  datasource:
+    url: jdbc:hsqldb:file:.jmix/hsqldb/adm
+    username: sa
+    password:
+jmix:
+  ui:
+    login-screen-id: adm_LoginScreen
+    main-screen-id: adm_MainScreen
+    menu-config: ru/udya/services/adminjmix/menu.xml
+    composite-menu: true
+  core:
+    available-locales: en
+  oidc:
+    use-default-ui-configuration: false
+spring:
+  application:
+    name: admin-jmix-service
+  boot:
+    admin:
+      client:
+        url: ${ADMIN_SERVER:http://localhost:8090/}
+  security:
+    oauth2:
+      resourceserver:
+        id: admin-jmix
+        jwt.issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8061/eureka/}
+  instance:
+    hostname: localhost
+logging:
+  level:
+    org.atmosphere: warn
+    eclipselink.logging.sql: info
+    io.jmix.core.datastore: info
+    io.jmix.core.AccessLogger: debug
+    io.jmix: info
+
+info:
+  app:
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      version: "@java.version@"

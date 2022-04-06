@@ -11,7 +11,7 @@ public class GatewayApiClientConfiguration {
 
     @Bean
     EmployeeControllerApi employeeControllerApi(WebClient.Builder webClientBuilder) {
-        var baseUrl = "http://employee-service/";
+        var baseUrl = "http://gateway-service/";
         var employeeWebClient = webClientBuilder.baseUrl(baseUrl).build();
 
         var employeeApiClient = new ApiClient(employeeWebClient);
@@ -22,7 +22,7 @@ public class GatewayApiClientConfiguration {
 
     @Bean
     DepartmentControllerApi departmentControllerApi(WebClient.Builder webClientBuilder) {
-        var baseUrl = "http://department-service/";
+        var baseUrl = "http://gateway-service/";
         var departmentClient = webClientBuilder.baseUrl(baseUrl).build();
 
         var employeeApiClient = new ApiClient(departmentClient);
@@ -33,7 +33,7 @@ public class GatewayApiClientConfiguration {
 
     @Bean
     OrganizationControllerApi organizationControllerApi(WebClient.Builder webClientBuilder) {
-        var baseUrl = "http://organization-service/";
+        var baseUrl = "http://gateway-service/";
         var organizationWebClient = webClientBuilder.baseUrl(baseUrl).build();
 
         var employeeApiClient = new ApiClient(organizationWebClient);

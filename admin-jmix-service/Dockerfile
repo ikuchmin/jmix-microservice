@@ -1,0 +1,7 @@
+FROM bellsoft/liberica-openjre-alpine:17
+ENV APP_HOME /app
+COPY build/libs/*.jar /app/app.jar
+ENV JAVA_OPTS=""
+WORKDIR $APP_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 $JAVA_OPTS -jar app.jar"]
