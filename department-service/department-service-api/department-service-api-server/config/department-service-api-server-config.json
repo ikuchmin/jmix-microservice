@@ -8,6 +8,6 @@
   "dateLibrary": "java8",
   "java8": true,
   "interfaceOnly": true,
-  "delegatePattern": true,
+  "delegatePattern": false,
   "useTags": true
 }

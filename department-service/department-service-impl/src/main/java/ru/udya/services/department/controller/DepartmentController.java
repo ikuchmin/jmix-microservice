@@ -15,6 +15,12 @@ import ru.udya.services.department.controller.mapper.DepartmentMapper;
 import ru.udya.services.department.controller.mapper.EmployeeMapper;
 import ru.udya.services.department.model.Department;
 import ru.udya.services.department.repository.DepartmentRepository;
+import ru.udya.services.department.security.role.ManageDepartmentRoleDefinition;
+import ru.udya.services.department.security.role.ManageDepartmentRoleDefinition.ManageDepartmentRole;
+import ru.udya.services.department.security.role.QueryDepartmentRoleDefinition;
+import ru.udya.services.department.security.role.QueryDepartmentRoleDefinition.QueryDepartmentRole;
+import ru.udya.services.department.security.role.ReadDepartmentRoleDefinition;
+import ru.udya.services.department.security.role.ReadDepartmentRoleDefinition.ReadDepartmentRole;
 import ru.udya.services.employee.api.client.EmployeeApi;
 import ru.udya.services.department.api.controller.DepartmentApi;
 
@@ -34,6 +40,7 @@ public class DepartmentController implements DepartmentApi {
 	EmployeeApi employeeClient;
 
 	@Override
+	@ManageDepartmentRole
 	public ResponseEntity<DepartmentDto> create(DepartmentDto departmentDto) {
 		LOGGER.info("Department add: {}", departmentDto);
 
@@ -47,6 +54,7 @@ public class DepartmentController implements DepartmentApi {
 	}
 
 	@Override
+	@ReadDepartmentRole
 	public ResponseEntity<List<DepartmentDto>> findAll() {
 		LOGGER.info("Department find");
 		var foundDepartments = repository.findAll();
@@ -59,6 +67,7 @@ public class DepartmentController implements DepartmentApi {
 	}
 
 	@Override
+	@ReadDepartmentRole
 	public ResponseEntity<DepartmentDto> findById(Long id) {
 		LOGGER.info("Department find: id={}", id);
 
@@ -74,6 +83,7 @@ public class DepartmentController implements DepartmentApi {
 	}
 
 	@Override
+	@QueryDepartmentRole
 	public ResponseEntity<List<DepartmentDto>> findByOrganization(Long organizationId) {
 		LOGGER.info("Department find: organizationId={}", organizationId);
 		var foundDepartments = repository.findByOrganization(organizationId);
@@ -86,6 +96,7 @@ public class DepartmentController implements DepartmentApi {
 	}
 
 	@Override
+	@QueryDepartmentRole
 	public ResponseEntity<List<DepartmentDto>> findByOrganizationWithEmployees(Long organizationId) {
 		LOGGER.info("Department find: organizationId={}", organizationId);
 		List<Department> foundDepartments = repository.findByOrganization(organizationId);
