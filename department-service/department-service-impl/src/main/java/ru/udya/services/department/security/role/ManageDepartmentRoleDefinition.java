@@ -12,16 +12,14 @@ import java.lang.annotation.Target;
 
 @ResourceRole(
         name = "Allow to manage Departments",
-        code = "manage-department")
+        code = ManageDepartmentRoleDefinition.CODE)
 public interface ManageDepartmentRoleDefinition {
 
-    @SpecificPolicy(resources = {"manage-department"})
-    void department();
-
+    String CODE = "manage-department";
 
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    @PreAuthorize("hasAnyAuthority('manage-department')")
+    @PreAuthorize("hasAnyAuthority('" + CODE + "')")
     @interface ManageDepartmentRole {
 
     }

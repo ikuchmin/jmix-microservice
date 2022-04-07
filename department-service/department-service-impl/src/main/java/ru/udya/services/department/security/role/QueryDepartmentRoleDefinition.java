@@ -11,15 +11,14 @@ import java.lang.annotation.Target;
 
 @ResourceRole(
         name = "Allow to query Departments",
-        code = "query-department")
+        code = QueryDepartmentRoleDefinition.CODE)
 public interface QueryDepartmentRoleDefinition {
 
-    @SpecificPolicy(resources = {"query-department"})
-    void department();
+    String CODE = "query-department";
 
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    @PreAuthorize("hasAnyAuthority('query-department')")
+    @PreAuthorize("hasAnyAuthority('" + CODE + "')")
     @interface QueryDepartmentRole {
 
     }
