@@ -9,6 +9,12 @@ import ru.udya.services.employee.api.controller.EmployeeApi;
 import ru.udya.services.employee.api.model.EmployeeDto;
 import ru.udya.services.employee.controller.mapper.EmployeeMapper;
 import ru.udya.services.employee.repository.EmployeeRepository;
+import ru.udya.services.employee.security.role.ManageEmployeeRoleDefinition;
+import ru.udya.services.employee.security.role.ManageEmployeeRoleDefinition.ManageEmployeeRole;
+import ru.udya.services.employee.security.role.QueryEmployeeRoleDefinition;
+import ru.udya.services.employee.security.role.QueryEmployeeRoleDefinition.QueryEmployeeRole;
+import ru.udya.services.employee.security.role.ReadEmployeeRoleDefinition;
+import ru.udya.services.employee.security.role.ReadEmployeeRoleDefinition.ReadEmployeeRole;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +28,7 @@ public class EmployeeController implements EmployeeApi {
 	EmployeeRepository repository;
 
 	@Override
+	@ManageEmployeeRole
 	public ResponseEntity<EmployeeDto> create(EmployeeDto employeeDto) {
 		LOGGER.info("Employee add: {}", employeeDto);
 
@@ -35,6 +42,7 @@ public class EmployeeController implements EmployeeApi {
 	}
 
 	@Override
+	@ReadEmployeeRole
 	public ResponseEntity<List<EmployeeDto>> findAll() {
 		LOGGER.info("Employee find");
 		var foundEmployees = repository.findAll();
@@ -47,6 +55,7 @@ public class EmployeeController implements EmployeeApi {
 	}
 
 	@Override
+	@QueryEmployeeRole
 	public ResponseEntity<List<EmployeeDto>> findByDepartment(Long departmentId) {
 		LOGGER.info("Employee find: departmentId={}", departmentId);
 
@@ -60,6 +69,7 @@ public class EmployeeController implements EmployeeApi {
 	}
 
 	@Override
+	@ReadEmployeeRole
 	public ResponseEntity<EmployeeDto> findById(Long id) {
 		LOGGER.info("Employee find: id={}", id);
 
@@ -75,6 +85,7 @@ public class EmployeeController implements EmployeeApi {
 	}
 
 	@Override
+	@QueryEmployeeRole
 	public ResponseEntity<List<EmployeeDto>> findByOrganization(Long organizationId) {
 		LOGGER.info("Employee find: organizationId={}", organizationId);
 
