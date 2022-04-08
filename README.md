@@ -16,6 +16,9 @@ Use `distribution` task for building jar or runnable jar depending on type proje
 Use docker-compose to build and run all services. Do not forget using rebuild 
 and recreate docker-compose flags 
 
+Open http://localhost:8080/auth (admin/admin) and import `auth-service/config/realm.json` for Master Realm.
+Use `Skip` strategy for importing.  
+
 #### Configuration
 
 Add `client` to the auth server KeyCloak
