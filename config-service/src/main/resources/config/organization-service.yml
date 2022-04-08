@@ -9,8 +9,8 @@ spring:
   security:
     oauth2:
       resourceserver:
-        jwt:
-          issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
+        id: organization
+        jwt.issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
 
 eureka:
   instance:

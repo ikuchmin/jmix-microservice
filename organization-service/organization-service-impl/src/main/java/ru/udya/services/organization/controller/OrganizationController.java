@@ -15,6 +15,9 @@ import ru.udya.services.organization.controller.mapper.OrganizationMapper;
 import ru.udya.services.organization.model.Employee;
 import ru.udya.services.organization.model.Organization;
 import ru.udya.services.organization.repository.OrganizationRepository;
+import ru.udya.services.organization.security.role.ManageOrganizationRole;
+import ru.udya.services.organization.security.role.QueryOrganizationRole;
+import ru.udya.services.organization.security.role.ReadOrganizationRole;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,6 +37,7 @@ public class OrganizationController implements OrganizationApi {
 	EmployeeApiClient employeeClient;
 
 	@Override
+	@ManageOrganizationRole
 	public ResponseEntity<OrganizationDto> create(OrganizationDto organizationDto) {
 		LOGGER.info("Organization add: {}", organizationDto);
 
@@ -47,6 +51,7 @@ public class OrganizationController implements OrganizationApi {
 	}
 
 	@Override
+	@ReadOrganizationRole
 	public ResponseEntity<List<OrganizationDto>> findAll() {
 		LOGGER.info("Organization find");
 
@@ -60,6 +65,7 @@ public class OrganizationController implements OrganizationApi {
 	}
 
 	@Override
+	@ReadOrganizationRole
 	public ResponseEntity<OrganizationDto> findById(Long id) {
 		LOGGER.info("Organization find: id={}", id);
 
@@ -75,6 +81,7 @@ public class OrganizationController implements OrganizationApi {
 	}
 
 	@Override
+	@ReadOrganizationRole
 	public ResponseEntity<OrganizationDto> findByIdWithEmployees(Long id) {
 		LOGGER.info("Organization find: id={}", id);
 		Organization organization = repository.findById(id);
@@ -95,6 +102,7 @@ public class OrganizationController implements OrganizationApi {
 	}
 
 	@Override
+	@ReadOrganizationRole
 	public ResponseEntity<OrganizationDto> findByIdWithDepartments(Long id) {
 		LOGGER.info("Organization find: id={}", id);
 
@@ -119,6 +127,7 @@ public class OrganizationController implements OrganizationApi {
 	}
 
 	@Override
+	@ReadOrganizationRole
 	public ResponseEntity<OrganizationDto> findByIdWithDepartmentsAndEmployees(Long id) {
 		LOGGER.info("Organization find: id={}", id);
 
@@ -143,56 +152,4 @@ public class OrganizationController implements OrganizationApi {
 
 		return ResponseEntity.ok(foundOrganizationDto);
 	}
-
-	//	@PostMapping
-//	public Organization add(@RequestBody Organization organization) {
-//		LOGGER.info("Organization add: {}", organization);
-//		return repository.add(organization);
-//	}
-//
-//	@GetMapping
-//	public List<Organization> findAll() {
-//		LOGGER.info("Organization find");
-//		return repository.findAll();
-//	}
-//
-//	@GetMapping("/{id}")
-//	public Organization findById(@PathVariable("id") Long id) {
-//		LOGGER.info("Organization find: id={}", id);
-//		return repository.findById(id);
-//	}
-//
-//	@GetMapping("/{id}/with-departments")
-//	public Organization findByIdWithDepartments(@PathVariable("id") Long id) {
-//		LOGGER.info("Organization find: id={}", id);
-//		Organization organization = repository.findById(id);
-//		organization.setDepartments(departmentClient.findByOrganization(organization.getId()));
-//		return organization;
-//	}
-//
-//	@GetMapping("/{id}/with-departments-and-employees")
-//	public Organization findByIdWithDepartmentsAndEmployees(@PathVariable("id") Long id) {
-//		LOGGER.info("Organization find: id={}", id);
-//		Organization organization = repository.findById(id);
-//		organization.setDepartments(departmentClient.findByOrganizationWithEmployees(organization.getId()));
-//		return organization;
-//	}
-//
-//	@GetMapping("/{id}/with-employees")
-//	public Organization findByIdWithEmployees(@PathVariable("id") Long id) {
-//		LOGGER.info("Organization find: id={}", id);
-//		Organization organization = repository.findById(id);
-//
-//		var foundEmployeesResponse = employeeClient.findByOrganization(organization.getId());
-//
-//		//noinspection ConstantConditions
-//		List<Employee> foundEmployees = foundEmployeesResponse.getBody().stream()
-//					.map(EmployeeMapper.INSTANCE::employeeDtoToEmployee)
-//					.collect(Collectors.toList());
-//
-//		organization.setEmployees(foundEmployees);
-//
-//		return organization;
-//	}
-	
 }
