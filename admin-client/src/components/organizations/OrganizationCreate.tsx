@@ -1,6 +1,6 @@
 import React from "react";
 import { Create, required, SimpleForm, TextInput } from "react-admin";
-import { AdminCreateProps } from "../types/common";
+import { AdminCreateProps } from "../../types/common";
 
 export const OrganizationCreate = (props: AdminCreateProps) => (
     <Create title="Create a Organization" {...props}>

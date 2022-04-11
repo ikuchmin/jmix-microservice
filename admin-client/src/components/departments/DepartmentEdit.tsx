@@ -1,7 +1,7 @@
 import { Edit, required, SimpleForm, TextInput } from "react-admin";
-import { AdminRefetenceAutocompleteInput } from "../common/components/AdminReferenceInput";
-import { AdminToolbar } from "../common/components/AdminToolbar";
-import { AdminEditProps } from "../types/common";
+import { AdminRefetenceAutocompleteInput } from "../../common/components/AdminReferenceInput";
+import { AdminToolbar } from "../../common/components/AdminToolbar";
+import { AdminEditProps } from "../../types/common";
 
 export const DepartmentEdit = (props: AdminEditProps) => (
     <Edit {...props}>

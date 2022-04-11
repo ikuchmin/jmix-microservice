@@ -1,6 +1,6 @@
 import React from "react";
 import {ReferenceField, Show, SimpleShowLayout, TextField } from "react-admin";
-import { AdminShowProps } from "../types/common";
+import { AdminShowProps } from "../../types/common";
 
 export function EmployeeShow(props: AdminShowProps) {
     return (

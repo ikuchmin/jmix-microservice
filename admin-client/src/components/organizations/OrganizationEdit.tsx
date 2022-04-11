@@ -1,6 +1,6 @@
 import { Edit, required, SimpleForm, TextInput } from "react-admin";
-import { AdminToolbar } from "../common/components/AdminToolbar";
-import { AdminEditProps } from "../types/common";
+import { AdminToolbar } from "../../common/components/AdminToolbar";
+import { AdminEditProps } from "../../types/common";
 
 export const OrganizationEdit = (props: AdminEditProps) => (
     <Edit {...props}>
