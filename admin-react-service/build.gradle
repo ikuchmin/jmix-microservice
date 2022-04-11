@@ -1,0 +1,19 @@
+plugins {
+    id "com.github.node-gradle.node" version "3.2.1"
+}
+
+configurations {
+    npm { transitive = false }
+}
+
+dependencies {
+    npm project(path: ':gateway-service:gateway-service-api:gateway-service-api-react-client', configuration: 'npm')
+}
+
+task npmInstallDeps(type: Copy, dependsOn: npmInstall) {
+    from tarTree(configurations.npm.singleFile)
+    into "node_modules"
+}
+
+
+task distribution(dependsOn: npmInstallDeps)
