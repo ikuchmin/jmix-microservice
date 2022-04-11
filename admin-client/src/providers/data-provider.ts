@@ -9,10 +9,15 @@ const departmentsApi = new DepartmentControllerApi();
 const employeesApi = new EmployeeControllerApi();
 const organizationsApi = new OrganizationControllerApi();
 
-const getList = (resources: ResoursesEnum) => {
+function getHeaders() {
     const headers = new Headers({ Accept: 'application/json' });
     const token = localStorage.getItem('token');
     headers.set('Authorization', `Bearer ${token}`);
+    return headers;
+}
+
+const getList = (resources: ResoursesEnum) => {
+    const headers = getHeaders();
 
     switch(resources) {
         case ResoursesEnum.employee:
@@ -25,9 +30,7 @@ const getList = (resources: ResoursesEnum) => {
 }
 
 const create = (resources: ResoursesEnum, dto: ParamsType) => {
-    const headers = new Headers({ Accept: 'application/json' });
-    const token = localStorage.getItem('token');
-    headers.set('Authorization', `Bearer ${token}`);
+    const headers = getHeaders();
 
     switch(resources) {
         case ResoursesEnum.employee:
@@ -40,9 +43,7 @@ const create = (resources: ResoursesEnum, dto: ParamsType) => {
 }
 
 const getOne = (resources: ResoursesEnum, id: number) => {
-    const headers = new Headers({ Accept: 'application/json' });
-    const token = localStorage.getItem('token');
-    headers.set('Authorization', `Bearer ${token}`);
+    const headers = getHeaders();
 
     switch(resources) {
         case ResoursesEnum.employee:
@@ -61,9 +62,7 @@ const getManyReference = (
         target: string
     }
 ) => {
-    const headers = new Headers({ Accept: 'application/json' });
-    const token = localStorage.getItem('token');
-    headers.set('Authorization', `Bearer ${token}`);
+    const headers = getHeaders();
 
     switch (resources) {
         case ResoursesEnum.department:
@@ -78,35 +77,31 @@ const getManyReference = (
     }
 }
 
-export const getDataProvider = (): DataProvider | LegacyDataProvider => {
-    console.log(localStorage.getItem("token"), 'token getDataProvider');
-
-    return createDataProvider({
-        getList: (resources: ResoursesEnum) => getList(resources)
-            .then((data: ParamsType[]) => {
-                return {
-                    data: [...data],
-                    total: data.length
-                }
-            }),
-        create: (resources: ResoursesEnum, params: { data: ParamsType }) => create(resources, params?.data)
-            .then((data: ParamsType) => {
-                return { data }
-            }),
-        getOne: (resources: ResoursesEnum, params: { id: string }) => getOne(resources, +params?.id)
-            .then((data: ParamsType) => {
-                return { data }
-            }),
-        getManyReference: (resources: ResoursesEnum, params: { id: number, target: string }) => getManyReference(resources, params)
-            .then((data: ParamsType[]) => {
-                return {
-                    data: [...data],
-                    total: data.length
-                }
-            }),
-        getMany: (resources: ResoursesEnum, params: { ids: number[]}) => getList(resources)
-            .then((data: ParamsType[]) => {
-                return {data}
-            })
-    })
-}
+export const dataProvider: DataProvider | LegacyDataProvider = createDataProvider({
+    getList: (resources: ResoursesEnum) => getList(resources)
+        .then((data: ParamsType[]) => {
+            return {
+                data: [...data],
+                total: data.length
+            }
+        }),
+    create: (resources: ResoursesEnum, params: { data: ParamsType }) => create(resources, params?.data)
+        .then((data: ParamsType) => {
+            return {data}
+        }),
+    getOne: (resources: ResoursesEnum, params: { id: string }) => getOne(resources, +params?.id)
+        .then((data: ParamsType) => {
+            return {data}
+        }),
+    getManyReference: (resources: ResoursesEnum, params: { id: number, target: string }) => getManyReference(resources, params)
+        .then((data: ParamsType[]) => {
+            return {
+                data: [...data],
+                total: data.length
+            }
+        }),
+    getMany: (resources: ResoursesEnum, params: { ids: number[] }) => getList(resources)
+        .then((data: ParamsType[]) => {
+            return {data}
+        })
+})
