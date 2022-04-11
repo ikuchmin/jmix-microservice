@@ -1,8 +1,8 @@
 import React from "react";
 import {Datagrid, ReferenceField, ReferenceManyField, Show,
     ShowButton, SimpleShowLayout, Tab, TabbedShowLayout, TextField } from "react-admin";
-import { AdminListActionToolbar } from "../common/components/AdminListActionsToolbar";
-import { AdminShowProps } from "../types/common";
+import { AdminListActionToolbar } from "../../common/components/AdminListActionsToolbar";
+import { AdminShowProps } from "../../types/common";
 
 export function DepartmentShow(props: AdminShowProps) {
     return (

@@ -12,10 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { REST_BASE_PATH } from "../../common/rest-info";
+import { REST_BASE_PATH_2 } from "../../common/rest-info";
 
 
-export const BASE_PATH = REST_BASE_PATH.replace(/\/+$/, "");
+export const BASE_PATH = REST_BASE_PATH_2.replace(/\/+$/, "");
 
 const isBlob = (value: any) => typeof Blob !== 'undefined' && value instanceof Blob;
 

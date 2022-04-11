@@ -1,7 +1,7 @@
 import React from "react";
 import { Create, required, SimpleForm, TextInput } from "react-admin";
-import { AdminReferenceInput } from "../common/components/AdminReferenceInput";
-import { AdminCreateProps } from "../types/common";
+import { AdminReferenceInput } from "../../common/components/AdminReferenceInput";
+import { AdminCreateProps } from "../../types/common";
 
 export const EmployeeCreate = (props: AdminCreateProps) => (
     <Create title="Create a Employee" {...props}>
