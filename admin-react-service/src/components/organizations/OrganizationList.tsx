@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import {Datagrid, EditButton, List, ShowButton, TextField } from "react-admin";
 import { AdminListActionToolbar } from "../../common/components/AdminListActionsToolbar";
 import { AdminListActionsTop } from "../../common/components/AdminListActionsTop";

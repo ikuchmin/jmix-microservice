@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, fetchUtils, Resource } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import departments from "./components/departments";
 import employees from "./components/employees";
 import organizations from "./components/organizations";

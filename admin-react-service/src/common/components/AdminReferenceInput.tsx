@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import {AutocompleteInput, ReferenceInput, ReferenceInputProps, SelectInput, Validator } from "react-admin";
+import React  from "react";
+import {AutocompleteInput, ReferenceInput, SelectInput, Validator } from "react-admin";
 
 type AdminReferenceInputProps = {
     source: string;
