@@ -1,5 +1,5 @@
 import React from "react";
-import {Datagrid, ReferenceManyField, Show, ShowButton, SimpleShowLayout, Tab, TabbedShowLayout, TextField } from "react-admin";
+import {Datagrid, ReferenceManyField, Show, ShowButton, Tab, TabbedShowLayout, TextField } from "react-admin";
 import { AdminListActionToolbar } from "../../common/components/AdminListActionsToolbar";
 import { AdminShowProps } from "../../types/common";
 

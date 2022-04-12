@@ -1,5 +1,5 @@
-import {AutocompleteInput, Edit, ReferenceInput, required, SelectInput, SimpleForm, TextInput } from "react-admin";
-import { AdminReferenceInput, AdminRefetenceAutocompleteInput } from "../../common/components/AdminReferenceInput";
+import { Edit, required, SimpleForm, TextInput } from "react-admin";
+import { AdminRefetenceAutocompleteInput } from "../../common/components/AdminReferenceInput";
 import { AdminToolbar } from "../../common/components/AdminToolbar";
 import { AdminEditProps } from "../../types/common";
 
