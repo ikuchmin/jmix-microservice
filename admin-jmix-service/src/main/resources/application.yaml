@@ -13,8 +13,6 @@ jmix:
     composite-menu: true
   core:
     available-locales: en
-  oidc:
-    use-default-ui-configuration: false
 spring:
   application:
     name: admin-jmix-service
@@ -24,6 +22,16 @@ spring:
         url: ${ADMIN_SERVER:http://localhost:8090/}
   security:
     oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: admin-jmix
+            client-secret: Ta7npGHdsh1hrwJyGwcLVYTEzJSsx4tc
+            scope: openid, profile, email
+        provider:
+          keycloak:
+            issuer-uri: http://192.168.99.104:8080/auth/realms/master
+            user-name-attribute: preferred_username
       resourceserver:
         id: admin-jmix
         jwt.issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
