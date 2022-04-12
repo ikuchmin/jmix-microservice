@@ -2,6 +2,7 @@ package ru.udya.services.adminjmix.security.auth.config;
 
 import io.jmix.oidc.claimsmapper.ClaimsRolesMapper;
 import io.jmix.oidc.jwt.JmixJwtAuthenticationConverter;
+import io.jmix.oidc.userinfo.JmixOidcUserService;
 import io.jmix.oidc.usermapper.OidcUserMapper;
 import io.jmix.security.role.ResourceRoleRepository;
 import io.jmix.security.role.RowLevelRoleRepository;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.jwt.*;
 import ru.udya.services.adminjmix.security.auth.claimsmapper.KeycloakClaimsRolesMapper;
 import ru.udya.services.adminjmix.security.auth.jwt.ExtJmixJwtAuthenticationConverter;
+import ru.udya.services.adminjmix.security.auth.userinfo.ExtJmixOidcUserService;
 
 @Configuration(proxyBeanMethods = false)
 public class JwtConfiguration {
@@ -49,8 +51,13 @@ public class JwtConfiguration {
     }
 
     @Bean
+    JmixOidcUserService jmixOidcUserService(OidcUserMapper oidcUserMapper, JwtDecoder jwtDecoder) {
+        return new ExtJmixOidcUserService(oidcUserMapper, jwtDecoder);
+    }
+
+    @Bean
     @ConditionalOnBean(ResourceRoleRepository.class)
-    public ClaimsRolesMapper claimsRoleMapper(ResourceRoleRepository resourceRoleRepository,
+    ClaimsRolesMapper claimsRoleMapper(ResourceRoleRepository resourceRoleRepository,
                                               RowLevelRoleRepository rowLevelRoleRepository) {
 
         var mapper = new KeycloakClaimsRolesMapper(resourceRoleRepository, rowLevelRoleRepository);
