@@ -10,10 +10,10 @@ dependencies {
     npm project(path: ':gateway-service:gateway-service-api:gateway-service-api-react-client', configuration: 'npm')
 }
 
-task npmInstallDeps(type: Copy, dependsOn: npmInstall) {
-    from tarTree(configurations.npm.singleFile)
-    into "node_modules"
+task npmInstallDeps(type: NpmTask, dependsOn: configurations.npm) {
+
+    args = ['install'] + configurations.npm.collect { it.path }
+
 }
 
-
-task distribution(dependsOn: npmInstallDeps)
+task distribution(dependsOn: [npmInstall, npmInstallDeps])

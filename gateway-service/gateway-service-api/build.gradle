@@ -116,6 +116,7 @@ configure(webclientModule) {
 }
 
 configure(reactModule) {
+
     def portalApiGeneratedSrcDir = "$buildDir/gateway-service-api-react-config"
 
     configurations {
@@ -140,8 +141,10 @@ configure(reactModule) {
         compression = Compression.GZIP
 
         from(portalApiGeneratedSrcDir)
-        into(project.name)
+        into('package')
     }
+
+    task clean(type: Delete) { delete buildDir }
 
     artifacts {
         npm(npmPackage)
