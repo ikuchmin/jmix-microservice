@@ -1,4 +1,4 @@
-package ru.udya.services.adminjmix.adapter;
+package ru.udya.services.adminjmix.client.adapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -3,7 +3,7 @@ package ru.udya.services.adminjmix.screen.organization;
 import io.jmix.core.SaveContext;
 import io.jmix.ui.screen.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.udya.services.adminjmix.adapter.OrganizationAdapter;
+import ru.udya.services.adminjmix.client.adapter.OrganizationAdapter;
 import ru.udya.services.adminjmix.entity.Organization;
 
 import java.util.Set;
