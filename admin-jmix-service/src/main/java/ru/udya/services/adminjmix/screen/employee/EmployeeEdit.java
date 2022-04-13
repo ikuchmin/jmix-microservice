@@ -3,7 +3,7 @@ package ru.udya.services.adminjmix.screen.employee;
 import io.jmix.core.SaveContext;
 import io.jmix.ui.screen.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.udya.services.adminjmix.app.EmployeeAdapter;
+import ru.udya.services.adminjmix.adapter.EmployeeAdapter;
 import ru.udya.services.adminjmix.entity.Employee;
 
 import java.util.Set;
@@ -17,7 +17,7 @@ public class EmployeeEdit extends StandardEditor<Employee> {
 
     @Install(target = Target.DATA_CONTEXT)
     private Set<Object> commitDelegate(SaveContext saveContext) {
-        Employee employee = employeeAdapter.save(getEditedEntity());
+        Employee employee = employeeAdapter.create(getEditedEntity());
         return Set.of(employee);
     }
 }

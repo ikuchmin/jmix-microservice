@@ -1,4 +1,4 @@
-package ru.udya.services.adminjmix.app;
+package ru.udya.services.adminjmix.adapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,9 +24,13 @@ public class OrganizationAdapter {
                 .block();
     }
 
-    public Organization save(Organization organization) {
-        OrganizationDto organizationDto = organizationMapper.organizationToOrganizationDto(organization);
-        OrganizationDto dto = organizationControllerApi.addOrganization(organizationDto).block();
+    public Organization create(Organization organization) {
+        OrganizationDto organizationDto = organizationMapper
+                .organizationToOrganizationDto(organization);
+
+        OrganizationDto dto = organizationControllerApi
+                .addOrganization(organizationDto).block();
+
         return organizationMapper.organizationDtoToOrganization(dto);
     }
 }

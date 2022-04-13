@@ -1,4 +1,4 @@
-package ru.udya.services.adminjmix.app;
+package ru.udya.services.adminjmix.adapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,8 +24,12 @@ public class EmployeeAdapter {
                 .block();
     }
 
-    public Employee save(Employee employee) {
-        EmployeeDto dto = employeeControllerApi.addEmployee(employeeMapper.employeeToEmployeeDto(employee)).block();
+    public Employee create(Employee employee) {
+        var employeeDto = employeeMapper.employeeToEmployeeDto(employee);
+
+        EmployeeDto dto = employeeControllerApi
+                .addEmployee(employeeDto).block();
+
         return employeeMapper.employeeDtoToEmployee(dto);
     }
 }

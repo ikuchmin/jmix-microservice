@@ -3,7 +3,7 @@ package ru.udya.services.adminjmix.screen.organization;
 import io.jmix.core.SaveContext;
 import io.jmix.ui.screen.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.udya.services.adminjmix.app.OrganizationAdapter;
+import ru.udya.services.adminjmix.adapter.OrganizationAdapter;
 import ru.udya.services.adminjmix.entity.Organization;
 
 import java.util.Set;
@@ -17,7 +17,7 @@ public class OrganizationEdit extends StandardEditor<Organization> {
 
     @Install(target = Target.DATA_CONTEXT)
     private Set<Object> commitDelegate(SaveContext saveContext) {
-        organizationAdapter.save(getEditedEntity());
+        organizationAdapter.create(getEditedEntity());
         return null;
     }
 }

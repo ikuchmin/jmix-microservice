@@ -3,7 +3,7 @@ package ru.udya.services.adminjmix.screen.department;
 import io.jmix.core.LoadContext;
 import io.jmix.ui.screen.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.udya.services.adminjmix.app.DepartmentAdapter;
+import ru.udya.services.adminjmix.adapter.DepartmentAdapter;
 import ru.udya.services.adminjmix.entity.Department;
 
 import java.util.List;

@@ -3,7 +3,7 @@ package ru.udya.services.adminjmix.screen.department;
 import io.jmix.core.SaveContext;
 import io.jmix.ui.screen.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.udya.services.adminjmix.app.DepartmentAdapter;
+import ru.udya.services.adminjmix.adapter.DepartmentAdapter;
 import ru.udya.services.adminjmix.entity.Department;
 
 import java.util.Set;
@@ -17,7 +17,7 @@ public class DepartmentEdit extends StandardEditor<Department> {
 
     @Install(target = Target.DATA_CONTEXT)
     private Set<Object> commitDelegate(SaveContext saveContext) {
-        departmentAdapter.save(getEditedEntity());
+        departmentAdapter.create(getEditedEntity());
         return null;
     }
 }

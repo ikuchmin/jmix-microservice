@@ -1,4 +1,4 @@
-package ru.udya.services.adminjmix.app;
+package ru.udya.services.adminjmix.adapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,8 +24,12 @@ public class DepartmentAdapter {
                 .block();
     }
 
-    public Department save(Department department) {
-        DepartmentDto dto = departmentControllerApi.addDepartment(departmentMapper.departmentToDepartmentDto(department)).block();
+    public Department create(Department department) {
+        var departmentDto = departmentMapper.departmentToDepartmentDto(department);
+
+        DepartmentDto dto = departmentControllerApi
+                .addDepartment(departmentDto).block();
+
         return departmentMapper.departmentDtoToDepartment(dto);
     }
 }
