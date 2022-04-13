@@ -12,7 +12,7 @@ spring:
         registration:
           keycloak:
             client-id: admin-jmix
-            client-secret: BRQntQ5Ggrt8iPGLDTLRrG7YjuBObQpL
+            client-secret: ${OAUTH2_CLIENT_SECRET:PoDY1cxzvPWfpUeDVLaw7agiC0IX8OAK}
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope: openid, profile, email
