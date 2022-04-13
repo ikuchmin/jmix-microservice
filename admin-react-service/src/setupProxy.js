@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.use(
         '/auth',
         createProxyMiddleware({
-            target: 'http://localhost:8060',
+            target: process.env.REACT_APP_PROXY_IP,
             secure: false,
             changeOrigin: true,
         }),
