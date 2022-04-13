@@ -29,9 +29,6 @@ public class EmployeeBrowse extends StandardLookup<Employee> {
         return employeeControllerApi.findAllEmployees()
                 .map(employeeMapper::employeeDtoToEmployee)
                 .collectList()
-                .doOnError(throwable -> {
-                    LOGGER.error("Something went wrong", throwable);
-                })
-                .block(Duration.ofSeconds(1));
+                .block();
     }
 }

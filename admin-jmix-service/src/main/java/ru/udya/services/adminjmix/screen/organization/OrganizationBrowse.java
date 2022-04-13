@@ -28,9 +28,6 @@ public class OrganizationBrowse extends StandardLookup<Organization> {
         return organizationControllerApi.findAllOrganizations()
                 .map(organizationMapper::organizationDtoToOrganization)
                 .collectList()
-                .doOnError(throwable -> {
-                    LOGGER.error("Something went wrong", throwable);
-                })
                 .block();
     }
 }

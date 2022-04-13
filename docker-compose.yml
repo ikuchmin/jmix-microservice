@@ -138,8 +138,10 @@ services:
     environment:
       - JAVA_OPTS=
         -DADMIN_SERVER=http://admin:8090/
+        -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
         -DAUTH_SERVER=http://auth:8080/auth/
+        -DAUTH_SERVER_EXTERNAL=http://localhost:8080/auth/
     ports:
       - "8000:8000"
     mem_limit: 512MB

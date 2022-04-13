@@ -1,0 +1,66 @@
+server:
+  port: 8000
+
+spring:
+  boot:
+    admin:
+      client:
+        url: ${ADMIN_SERVER:http://localhost:8090/}
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: admin-jmix
+            client-secret: BRQntQ5Ggrt8iPGLDTLRrG7YjuBObQpL
+            scope: openid, profile, email
+        provider:
+          keycloak:
+            issuer-uri: ${AUTH_SERVER_EXTERNAL:http://localhost:8080/auth/}realms/master
+            user-name-attribute: preferred_username
+      resourceserver:
+        id: admin-jmix
+        jwt.issuer-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+  client:
+    fetchRegistry: true
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8061/eureka/}
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+jmix:
+  ui:
+    login-screen-id: adm_LoginScreen
+    main-screen-id: adm_MainScreen
+    menu-config: ru/udya/services/adminjmix/menu.xml
+    composite-menu: true
+  core:
+    available-locales: en
+
+main:
+  datasource:
+    url: jdbc:hsqldb:file:.jmix/hsqldb/adm
+    username: sa
+    password:
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  level:
+    io.jmix: debug
+    eclipselink.logging.sql: info
+    org.springframework.web: debug
+    org.springframework.security: debug

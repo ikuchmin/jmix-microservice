@@ -1,5 +1,6 @@
 package ru.udya.services.adminjmix.client.config;
 
+import io.netty.channel.ChannelOption;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -34,15 +35,11 @@ public class MicroserviceClientConfiguration {
     public WebClient.Builder webClientBuilder(ClientRegistrationRepository clientRegistrations,
                                               OAuth2AuthorizedClientRepository authorizedClients) {
 
-        HttpClient client = HttpClient.create()
-                .responseTimeout(Duration.ofSeconds(5)); // change timeout for long first request
-
         var oauth2 = new ServletOAuth2AuthorizedClientExchangeFilterFunction(
                 clientRegistrations, authorizedClients);
         oauth2.setDefaultOAuth2AuthorizedClient(true);
 
         return WebClient.builder()
-                .clientConnector(new ReactorClientHttpConnector(client))
                 .apply(oauth2.oauth2Configuration()); // relay auth token
     }
 }

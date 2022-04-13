@@ -28,9 +28,6 @@ public class DepartmentBrowse extends StandardLookup<Department> {
         return departmentControllerApi.findAllDepartments()
                 .map(departmentMapper::departmentDtoToDepartment)
                 .collectList()
-                .doOnError(throwable -> {
-                    LOGGER.error("Something went wrong", throwable);
-                })
                 .block();
     }
 }
