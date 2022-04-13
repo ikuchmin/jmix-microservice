@@ -13,10 +13,14 @@ spring:
           keycloak:
             client-id: admin-jmix
             client-secret: BRQntQ5Ggrt8iPGLDTLRrG7YjuBObQpL
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope: openid, profile, email
         provider:
           keycloak:
-            issuer-uri: ${AUTH_SERVER_EXTERNAL:http://localhost:8080/auth/}realms/master
+            authorization-uri: ${AUTH_SERVER_EXTERNAL:http://localhost:8080/auth/}realms/master/protocol/openid-connect/auth
+            token-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master/protocol/openid-connect/token
+            jwk-set-uri: ${AUTH_SERVER:http://localhost:8080/auth/}realms/master/protocol/openid-connect/certs
             user-name-attribute: preferred_username
       resourceserver:
         id: admin-jmix
