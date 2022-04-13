@@ -9,36 +9,30 @@ import ru.udya.services.gateway.api.invoker.ApiClient;
 
 public class GatewayApiClientConfiguration {
 
-    @Bean
-    EmployeeControllerApi employeeControllerApi(WebClient.Builder webClientBuilder) {
+    private ApiClient apiClient;
+
+    public GatewayApiClientConfiguration(WebClient.Builder webClientBuilder) {
         var baseUrl = "http://gateway-service/";
-        var employeeWebClient = webClientBuilder.baseUrl(baseUrl).build();
 
-        var employeeApiClient = new ApiClient(employeeWebClient);
-        employeeApiClient.setBasePath(baseUrl);
+        var webClient = webClientBuilder.baseUrl(baseUrl).build();
+        var apiClient = new ApiClient(webClient);
+        apiClient.setBasePath(baseUrl);
 
-        return new EmployeeControllerApi(employeeApiClient);
+        this.apiClient = apiClient;
     }
 
     @Bean
-    DepartmentControllerApi departmentControllerApi(WebClient.Builder webClientBuilder) {
-        var baseUrl = "http://gateway-service/";
-        var departmentClient = webClientBuilder.baseUrl(baseUrl).build();
-
-        var employeeApiClient = new ApiClient(departmentClient);
-        employeeApiClient.setBasePath(baseUrl);
-
-        return new DepartmentControllerApi(employeeApiClient);
+    EmployeeControllerApi employeeControllerApi() {
+        return new EmployeeControllerApi(apiClient);
     }
 
     @Bean
-    OrganizationControllerApi organizationControllerApi(WebClient.Builder webClientBuilder) {
-        var baseUrl = "http://gateway-service/";
-        var organizationWebClient = webClientBuilder.baseUrl(baseUrl).build();
+    DepartmentControllerApi departmentControllerApi() {
+        return new DepartmentControllerApi(apiClient);
+    }
 
-        var employeeApiClient = new ApiClient(organizationWebClient);
-        employeeApiClient.setBasePath(baseUrl);
-
-        return new OrganizationControllerApi(employeeApiClient);
+    @Bean
+    OrganizationControllerApi organizationControllerApi() {
+        return new OrganizationControllerApi(apiClient);
     }
 }
