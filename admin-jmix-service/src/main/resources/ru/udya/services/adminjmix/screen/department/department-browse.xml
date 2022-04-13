@@ -4,14 +4,8 @@
         caption="msg://departmentBrowse.caption"
         focusComponent="departmentsTable">
     <data readOnly="true">
-        <collection id="departmentsDc"
-                    class="ru.udya.services.adminjmix.entity.Department">
-            <fetchPlan extends="_base"/>
-            <loader id="departmentsDl">
-                <query>
-                    <![CDATA[select e from adm_Department e]]>
-                </query>
-            </loader>
+        <collection id="departmentsDc" class="ru.udya.services.adminjmix.entity.Department">
+            <loader id="departmentsDl"/>
         </collection>
     </data>
     <facets>
@@ -31,27 +25,25 @@
     <dialogMode height="600"
                 width="800"/>
     <layout expand="departmentsTable" spacing="true">
-        <filter id="filter"
-                dataLoader="departmentsDl">
-            <properties include=".*"/>
-        </filter>
         <groupTable id="departmentsTable"
                     width="100%"
                     dataContainer="departmentsDc">
             <actions>
                 <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="view" type="view"/>
+                <action id="refresh" type="refresh"/>
             </actions>
             <columns>
+                <column id="id"/>
                 <column id="name"/>
+                <column id="organizationId"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn" action="departmentsTable.create"/>
-                <button id="editBtn" action="departmentsTable.edit"/>
-                <button id="removeBtn" action="departmentsTable.remove"/>
+                <button id="viewBtn" action="departmentsTable.view"/>
+                <button id="refreshBtn" action="departmentsTable.refresh"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

@@ -3,11 +3,7 @@
         caption="msg://organizationEdit.caption"
         focusComponent="form">
     <data>
-        <instance id="organizationDc"
-                  class="ru.udya.services.adminjmix.entity.Organization">
-            <fetchPlan extends="_base"/>
-            <loader/>
-        </instance>
+        <instance id="organizationDc" class="ru.udya.services.adminjmix.entity.Organization"/>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -27,9 +23,8 @@
     <layout spacing="true" expand="editActions">
         <form id="form" dataContainer="organizationDc">
             <column width="350px">
-                <textField id="idField" property="id"/>
+                <textField id="idField" property="id" editable="false"/>
                 <textField id="nameField" property="name"/>
-                <textField id="addressField" property="address"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

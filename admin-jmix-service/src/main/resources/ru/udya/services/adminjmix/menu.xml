@@ -4,9 +4,9 @@
     <menu id="application" caption="msg://ru.udya.services.adminjmix/menu.application" insertBefore="administration">
         <item screen="adm_User.browse" caption="msg://ru.udya.services.adminjmix.screen.user/UserBrowse.caption"/>
         <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="Employee.browse" caption="msg://ru.udya.services.adminjmix.screen.employee/employeeBrowse.menu"/>
         <item screen="adm_Department.browse"
               caption="msg://ru.udya.services.adminjmix.screen.department/departmentBrowse.menu"/>
-        <item screen="adm_Employee.browse" caption="msg://ru.udya.services.adminjmix.screen.employee/employeeBrowse.menu"/>
         <item screen="adm_Organization.browse"
               caption="msg://ru.udya.services.adminjmix.screen.organization/organizationBrowse.menu"/>
     </menu>

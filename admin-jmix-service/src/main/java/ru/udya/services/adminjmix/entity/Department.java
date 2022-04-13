@@ -5,12 +5,6 @@ import io.jmix.core.entity.annotation.JmixId;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
-
 @JmixEntity(name = "adm_Department")
 public class Department {
     @JmixGeneratedValue
@@ -19,6 +13,16 @@ public class Department {
 
     @InstanceName
     private String name;
+
+    private Long organizationId;
+
+    public void setOrganizationId(Long organizationId) {
+        this.organizationId = organizationId;
+    }
+
+    public Long getOrganizationId() {
+        return organizationId;
+    }
 
     public String getName() {
         return name;

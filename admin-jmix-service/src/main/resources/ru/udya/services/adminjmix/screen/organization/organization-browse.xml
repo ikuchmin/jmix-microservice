@@ -4,14 +4,8 @@
         caption="msg://organizationBrowse.caption"
         focusComponent="organizationsTable">
     <data readOnly="true">
-        <collection id="organizationsDc"
-                    class="ru.udya.services.adminjmix.entity.Organization">
-            <fetchPlan extends="_base"/>
-            <loader id="organizationsDl">
-                <query>
-                    <![CDATA[select e from adm_Organization e]]>
-                </query>
-            </loader>
+        <collection id="organizationsDc" class="ru.udya.services.adminjmix.entity.Organization">
+            <loader id="organizationsDl"/>
         </collection>
     </data>
     <facets>
@@ -31,17 +25,13 @@
     <dialogMode height="600"
                 width="800"/>
     <layout expand="organizationsTable" spacing="true">
-        <filter id="filter"
-                dataLoader="organizationsDl">
-            <properties include=".*"/>
-        </filter>
         <groupTable id="organizationsTable"
                     width="100%"
                     dataContainer="organizationsDc">
             <actions>
                 <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="view" type="view"/>
+                <action id="refresh" type="refresh"/>
             </actions>
             <columns>
                 <column id="id"/>
@@ -52,8 +42,8 @@
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn" action="organizationsTable.create"/>
-                <button id="editBtn" action="organizationsTable.edit"/>
-                <button id="removeBtn" action="organizationsTable.remove"/>
+                <button id="viewBtn" action="organizationsTable.view"/>
+                <button id="refreshBtn" action="organizationsTable.refresh"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

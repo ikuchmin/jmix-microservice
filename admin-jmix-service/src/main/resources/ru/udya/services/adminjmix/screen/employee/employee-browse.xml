@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
-        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
         caption="msg://employeeBrowse.caption"
         focusComponent="employeesTable">
     <data readOnly="true">
-        <collection id="employeesDc"
-                    class="ru.udya.services.adminjmix.entity.Employee">
-            <fetchPlan extends="_base"/>
-            <loader id="employeesDl">
-                <query>
-                    <![CDATA[select e from adm_Employee e]]>
-                </query>
-            </loader>
+        <collection id="employeesDc" class="ru.udya.services.adminjmix.entity.Employee">
+            <loader id="employeesDl"/>
         </collection>
     </data>
     <facets>
@@ -31,32 +24,28 @@
     <dialogMode height="600"
                 width="800"/>
     <layout expand="employeesTable" spacing="true">
-        <filter id="filter"
-                dataLoader="employeesDl">
-            <properties include=".*"/>
-        </filter>
         <groupTable id="employeesTable"
                     width="100%"
                     dataContainer="employeesDc">
             <actions>
                 <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="view" type="view"/>
+                <action id="refresh" type="refresh"/>
             </actions>
             <columns>
                 <column id="id"/>
                 <column id="name"/>
                 <column id="age"/>
-                <column id="departmentId"/>
                 <column id="organizationId"/>
                 <column id="position"/>
+                <column id="departmentId"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn" action="employeesTable.create"/>
-                <button id="editBtn" action="employeesTable.edit"/>
-                <button id="removeBtn" action="employeesTable.remove"/>
+                <button id="viewBtn" action="employeesTable.view"/>
+                <button id="refreshBtn" action="employeesTable.refresh"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
