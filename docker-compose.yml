@@ -28,7 +28,7 @@ services:
     depends_on:
       admin:
         condition: service_healthy
-  
+
   discovery:
     hostname: discovery
     build: ./discovery-service/
@@ -154,3 +154,9 @@ services:
     depends_on:
       gateway:
         condition: service_healthy
+
+  client:
+    hostname: client
+    build: ./admin-react-service
+    ports:
+      - "3000:3000"
