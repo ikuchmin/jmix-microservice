@@ -17,7 +17,6 @@ import org.springframework.security.oauth2.server.resource.web.reactive.function
 import org.springframework.security.oauth2.server.resource.web.reactive.function.client.ServletBearerExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 import ru.udya.services.gateway.api.config.GatewayApiClientConfiguration;
-import ru.udya.services.adminjmix.client.webclient.JmixServletBearerExchangeFilterFunction;
 
 import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 

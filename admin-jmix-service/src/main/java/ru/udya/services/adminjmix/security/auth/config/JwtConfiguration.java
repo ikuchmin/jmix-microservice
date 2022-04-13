@@ -1,7 +1,6 @@
 package ru.udya.services.adminjmix.security.auth.config;
 
 import io.jmix.oidc.claimsmapper.ClaimsRolesMapper;
-import io.jmix.oidc.jwt.JmixJwtAuthenticationConverter;
 import io.jmix.oidc.userinfo.JmixOidcUserService;
 import io.jmix.oidc.usermapper.OidcUserMapper;
 import io.jmix.security.role.ResourceRoleRepository;
@@ -13,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.jwt.*;
 import ru.udya.services.adminjmix.security.auth.claimsmapper.KeycloakClaimsRolesMapper;
-import ru.udya.services.adminjmix.security.auth.jwt.ExtJmixJwtAuthenticationConverter;
 import ru.udya.services.adminjmix.security.auth.userinfo.ExtJmixOidcUserService;
 
 @Configuration(proxyBeanMethods = false)
@@ -28,10 +26,6 @@ public class JwtConfiguration {
         this.jwtProperties = properties.getJwt();
     }
 
-    @Bean
-    public JmixJwtAuthenticationConverter jmixJwtAuthenticationConverter(OidcUserMapper oidcUserMapper) {
-        return new ExtJmixJwtAuthenticationConverter(oidcUserMapper);
-    }
 
     @Bean
     SupplierJwtDecoder supplierJwtDecoder() {
