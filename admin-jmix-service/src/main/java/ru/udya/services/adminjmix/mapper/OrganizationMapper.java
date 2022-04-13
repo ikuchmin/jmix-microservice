@@ -15,7 +15,6 @@ public abstract class OrganizationMapper {
 
     public Organization organizationDtoToOrganization(OrganizationDto organizationDto) {
         Organization organization = metadata.create(Organization.class);
-        organization.setUuid(UUID.randomUUID());
         organization.setId(organizationDto.getId());
         organization.setName(organizationDto.getName());
         organization.setAddress(organizationDto.getAddress());

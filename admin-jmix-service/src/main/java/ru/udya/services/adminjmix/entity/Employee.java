@@ -1,5 +1,7 @@
 package ru.udya.services.adminjmix.entity;
 
+import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.entity.annotation.JmixId;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
@@ -8,28 +10,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@JmixEntity
-@Table(name = "ADM_EMPLOYEE")
-@Entity(name = "adm_Employee")
+@JmixEntity(name = "adm_Employee")
 public class Employee {
-    @Column(name = "ID", nullable = false)
-    @Id
+    @JmixGeneratedValue
+    @JmixId
     private Long id;
 
     @InstanceName
-    @Column(name = "NAME")
     private String name;
 
-    @Column(name = "AGE")
     private Integer age;
 
-    @Column(name = "DEPARTMENT_ID")
     private Long departmentId;
 
-    @Column(name = "ORGANIZATION_ID")
     private Long organizationId;
 
-    @Column(name = "POSITION_")
     private String position;
 
     public String getPosition() {
