@@ -17,7 +17,7 @@ public class OrganizationEdit extends StandardEditor<Organization> {
 
     @Install(target = Target.DATA_CONTEXT)
     private Set<Object> commitDelegate(SaveContext saveContext) {
-        organizationAdapter.create(getEditedEntity());
-        return null;
+        Organization organization = organizationAdapter.create(getEditedEntity());
+        return Set.of(organization);
     }
 }
