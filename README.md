@@ -13,15 +13,27 @@ applications is with IDEs like IntelliJ IDEA or Eclipse.
 
 Use `distribution` task for building jar or runnable jar depending on type project.
 
-Use docker-compose to build and run all services. Do not forget using rebuild 
-and recreate docker-compose flags 
+Use docker-compose to build and run all services. Do not forget using `--build` 
+and `--force-recreate` docker-compose flags
 
-Open http://localhost:8080/auth (admin/admin) and import `auth-service/config/realm.json` for Master Realm.
-Use `Skip` strategy for importing.  
+**Optional:** By default application expects that docker is running over Docker Desktop, but if you are 
+running docker inside virtual machine (like VirtualBox) your IP isn't the same as localhost. If it is your
+case you should change AUTH_SERVER_EXTERNAL url in docker-compose for admin-jmix. Also see the same section
+in configuration
 
 #### Configuration
 
-Add `client` to the auth server KeyCloak
+Open http://localhost:8080/auth (admin/admin) and import `auth-service/config/realm.json` for Master Realm.
+Use `Skip` strategy for importing.
+
+Because Auth server doesn't export role assigment during realm exporting you should add roles to the admin
+user by your hands. Open users in Admin console, find admin, open Role Mappings and assign `system-full-access`
+role
+
+**Optional:** By default application expects that docker is running over Docker Desktop, but if you are
+running docker inside virtual machine (like VirtualBox) your IP isn't the same as localhost. If it is your
+case you should change urls for admin-jmix client configuration. Open admin-jmix client configuration and 
+change localhost on your IP everywhere
 
 ## Architecture
 
