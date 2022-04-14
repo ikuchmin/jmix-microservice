@@ -10,7 +10,7 @@ const employeesApi = new EmployeeControllerApi();
 const organizationsApi = new OrganizationControllerApi();
 
 function getHeaders() {
-    const headers = new Headers({ Accept: 'application/json' });
+    const headers = new Headers({ Accept: 'application/json', "Content-Type": "application/json" });
     const token = localStorage.getItem('token');
     headers.set('Authorization', `Bearer ${token}`);
     return headers;
