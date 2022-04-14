@@ -1,12 +1,4 @@
-FROM node:latest AS builder
-WORKDIR /app
-COPY package.json ./
-RUN npm install --force
-COPY . .
-CMD ["npm", "run"]
-
-#FROM nginx:alpine
-#WORKDIR /usr/share/nginx/html
-#RUN rm -rf ./*
-#COPY --from=builder /app/build .
-#ENTRYPOINT ["nginx", "-g", "daemon off;"]
+FROM nginx
+COPY build /usr/share/nginx/html
+COPY config/nginx/admin-react.conf.template /etc/nginx/templates/
+RUN rm /etc/nginx/conf.d/default.conf

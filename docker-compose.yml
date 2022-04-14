@@ -155,8 +155,15 @@ services:
       gateway:
         condition: service_healthy
 
-  client:
-    hostname: client
-    build: ./admin-react-service
+  admin-react:
+    hostname: admin-react
+    build: ./admin-react-service/
+    environment:
+      - GATEWAY_SERVER=http://gateway:8060/
     ports:
-      - "3000:3000"
+      - "3000:80"
+    mem_limit: 512MB
+#    depends_on:
+#      gateway:
+#        condition: service_healthy
+
