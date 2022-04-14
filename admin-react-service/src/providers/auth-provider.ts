@@ -9,7 +9,7 @@ export const authProvider: AuthProvider | LegacyAuthProvider | undefined = {
                 'Accept': '*/*',
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `client_id=admin-client&password=${password}&username=${username}&grant_type=password`
+            body: `client_id=admin-react&password=${password}&username=${username}&grant_type=password`
         })
 
         const result = JSON.parse(await response.text());
