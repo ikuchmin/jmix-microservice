@@ -16,4 +16,8 @@ task npmInstallDeps(type: NpmTask, dependsOn: configurations.npm) {
 
 }
 
-task distribution(dependsOn: [npmInstall, npmInstallDeps])
+npm_run_build.dependsOn npmInstall, npmInstallDeps
+
+task distribution(dependsOn: [npm_run_build])
+
+task clean(type: Delete) { delete 'build' }
