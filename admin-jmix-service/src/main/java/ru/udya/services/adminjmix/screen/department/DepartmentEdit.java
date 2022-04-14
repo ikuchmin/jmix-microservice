@@ -17,7 +17,7 @@ public class DepartmentEdit extends StandardEditor<Department> {
 
     @Install(target = Target.DATA_CONTEXT)
     private Set<Object> commitDelegate(SaveContext saveContext) {
-        departmentAdapter.create(getEditedEntity());
-        return null;
+        Department department = departmentAdapter.create(getEditedEntity());
+        return Set.of(department);
     }
 }

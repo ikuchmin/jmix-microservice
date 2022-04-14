@@ -25,6 +25,7 @@
             <column width="350px">
                 <textField id="idField" property="id" editable="false"/>
                 <textField id="nameField" property="name"/>
+                <textField id="addressField" property="address"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
