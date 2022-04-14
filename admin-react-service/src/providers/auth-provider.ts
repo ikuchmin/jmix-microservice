@@ -1,15 +1,14 @@
 import { AuthProvider, LegacyAuthProvider } from "react-admin";
-import { REST_BASE_PATH_2 } from "../common/rest-info";
 
 export const authProvider: AuthProvider | LegacyAuthProvider | undefined = {
     login: async ({ username, password }) => {
-        const response = await fetch(`${REST_BASE_PATH_2}/auth/realms/master/protocol/openid-connect/token`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/realms/master/protocol/openid-connect/token`, {
             method: 'POST',
             headers: {
                 'Accept': '*/*',
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `client_id=admin-react&password=${password}&username=${username}&grant_type=password`
+            body: `client_id=${process.env.REACT_APP_CLIENT_ID}&password=${password}&username=${username}&grant_type=password`
         })
 
         const result = JSON.parse(await response.text());
