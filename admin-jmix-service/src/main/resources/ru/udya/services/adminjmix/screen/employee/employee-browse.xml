@@ -36,9 +36,9 @@
                 <column id="id"/>
                 <column id="name"/>
                 <column id="age"/>
-                <column id="organizationId"/>
                 <column id="position"/>
-                <column id="departmentId"/>
+                <column id="department"/>
+                <column id="organization"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

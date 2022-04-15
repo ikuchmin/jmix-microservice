@@ -4,6 +4,12 @@
         focusComponent="form">
     <data>
         <instance id="employeeDc" class="ru.udya.services.adminjmix.entity.Employee"/>
+        <collection id="departmentsDc" class="ru.udya.services.adminjmix.entity.Department">
+            <loader id="departmentsDl"/>
+        </collection>
+        <collection id="organizationsDc" class="ru.udya.services.adminjmix.entity.Organization">
+            <loader id="organizationsDl"/>
+        </collection>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -26,9 +32,23 @@
                 <textField id="idField" property="id" editable="false"/>
                 <textField id="nameField" property="name"/>
                 <textField id="ageField" property="age"/>
-                <textField id="departmentIdField" property="departmentId"/>
-                <textField id="organizationIdField" property="organizationId"/>
                 <textField id="positionField" property="position"/>
+                <entityComboBox id="departmentIdField"
+                                optionsContainer="departmentsDc"
+                                property="department">
+                    <actions>
+                        <action id="lookup" type="entity_lookup"/>
+                        <action id="clear" type="entity_clear"/>
+                    </actions>
+                </entityComboBox>
+                <entityComboBox id="organizationIdField"
+                                optionsContainer="organizationsDc"
+                                property="organization">
+                    <actions>
+                        <action id="lookup" type="entity_lookup"/>
+                        <action id="clear" type="entity_clear"/>
+                    </actions>
+                </entityComboBox>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

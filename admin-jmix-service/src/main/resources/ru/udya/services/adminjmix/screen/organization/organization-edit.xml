@@ -3,7 +3,10 @@
         caption="msg://organizationEdit.caption"
         focusComponent="form">
     <data>
-        <instance id="organizationDc" class="ru.udya.services.adminjmix.entity.Organization"/>
+        <instance id="organizationDc" class="ru.udya.services.adminjmix.entity.Organization">
+            <collection id="employeesDc" property="employees"/>
+            <collection id="departmentsDc" property="departments"/>
+        </instance>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -28,6 +31,51 @@
                 <textField id="addressField" property="address"/>
             </column>
         </form>
+        <hbox spacing="true" height="400px" width="100%">
+            <groupBox id="departmentsGroupBox" caption="msg://departmentsGroupBox.caption" height="100%"
+                      box.expandRatio="1.0">
+                <groupTable id="departmentsTable"
+                            height="100%"
+                            width="100%"
+                            box.expandRatio="1"
+                            dataContainer="departmentsDc">
+                    <actions>
+                        <action id="view" type="view"/>
+                    </actions>
+                    <columns>
+                        <column id="id"/>
+                        <column id="name"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel id="departmentsButtonsPanel" alwaysVisible="true">
+                        <button id="departmentsViewBtn" action="departmentsTable.view"/>
+                    </buttonsPanel>
+                </groupTable>
+            </groupBox>
+            <groupBox id="employeesGroupBox" caption="msg://employeesGroupBox.caption" height="100%"
+                      box.expandRatio="3.0">
+                <groupTable id="employeesTable"
+                            height="100%"
+                            width="100%"
+                            box.expandRatio="4"
+                            dataContainer="employeesDc">
+                    <actions>
+                        <action id="view" type="view"/>
+                    </actions>
+                    <columns>
+                        <column id="id"/>
+                        <column id="name"/>
+                        <column id="age"/>
+                        <column id="position"/>
+                        <column id="department"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel id="employeesButtonsPanel" alwaysVisible="true">
+                        <button id="employeesViewBtn" action="employeesTable.view"/>
+                    </buttonsPanel>
+                </groupTable>
+            </groupBox>
+        </hbox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

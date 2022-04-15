@@ -8,6 +8,7 @@ import ru.udya.services.gateway.api.client.OrganizationControllerApi;
 import ru.udya.services.gateway.api.model.OrganizationDto;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component("adm_OrganizationAdapter")
 public class OrganizationAdapter {
@@ -19,9 +20,14 @@ public class OrganizationAdapter {
 
     public List<Organization> findAll() {
         return organizationControllerApi.findAllOrganizations()
+                .toStream()
                 .map(organizationMapper::organizationDtoToOrganization)
-                .collectList()
-                .block();
+                .collect(Collectors.toList());
+    }
+
+    public Organization findById(Long id) {
+        OrganizationDto dto = organizationControllerApi.findOrganizationById(id).block();
+        return organizationMapper.organizationDtoToOrganization(dto);
     }
 
     public Organization create(Organization organization) {

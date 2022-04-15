@@ -3,7 +3,12 @@
         caption="msg://departmentEdit.caption"
         focusComponent="form">
     <data>
-        <instance id="departmentDc" class="ru.udya.services.adminjmix.entity.Department"/>
+        <instance id="departmentDc" class="ru.udya.services.adminjmix.entity.Department">
+            <collection id="employeesDc" property="employees"/>
+        </instance>
+        <collection id="organizationsDc" class="ru.udya.services.adminjmix.entity.Organization">
+            <loader id="organizationsDl"/>
+        </collection>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -25,9 +30,34 @@
             <column width="350px">
                 <textField id="idField" property="id" editable="false"/>
                 <textField id="nameField" property="name"/>
-                <textField id="organizationIdField" property="organizationId"/>
+                <entityComboBox id="organizationIdField"
+                                optionsContainer="organizationsDc"
+                                property="organization">
+                    <actions>
+                        <action id="lookup" type="entity_lookup"/>
+                        <action id="clear" type="entity_clear"/>
+                    </actions>
+                </entityComboBox>
             </column>
         </form>
+        <groupBox id="employeesGroupBox" caption="msg://employeesGroupBox.caption" width="600px" height="400px">
+            <groupTable id="employeesTable" width="100%" height="100%" dataContainer="employeesDc">
+                <actions>
+                    <action id="view" type="view"/>
+                </actions>
+                <columns>
+                    <column id="id"/>
+                    <column id="name"/>
+                    <column id="age"/>
+                    <column id="position"/>
+                    <column id="organization"/>
+                </columns>
+                <simplePagination/>
+                <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+                    <button id="viewBtn" action="employeesTable.view"/>
+                </buttonsPanel>
+            </groupTable>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

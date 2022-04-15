@@ -1,19 +1,13 @@
 package ru.udya.services.adminjmix.entity;
 
-import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.JmixId;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
+import java.util.List;
 
 @JmixEntity(name = "adm_Organization")
 public class Organization {
-    @JmixGeneratedValue
     @JmixId
     private Long id;
 
@@ -21,6 +15,26 @@ public class Organization {
     private String name;
 
     private String address;
+
+    private List<Department> departments;
+
+    private List<Employee> employees;
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 
     public String getAddress() {
         return address;

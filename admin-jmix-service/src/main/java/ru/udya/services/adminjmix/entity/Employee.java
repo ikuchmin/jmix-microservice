@@ -1,18 +1,14 @@
 package ru.udya.services.adminjmix.entity;
 
-import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.JmixId;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
+import io.jmix.core.metamodel.annotation.JmixProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @JmixEntity(name = "adm_Employee")
 public class Employee {
-    @JmixGeneratedValue
     @JmixId
     private Long id;
 
@@ -21,9 +17,13 @@ public class Employee {
 
     private Integer age;
 
-    private Long departmentId;
+    @JmixProperty(mandatory = true)
+    @NotNull
+    private Department department;
 
-    private Long organizationId;
+    @JmixProperty(mandatory = true)
+    @NotNull
+    private Organization organization;
 
     private String position;
 
@@ -35,20 +35,20 @@ public class Employee {
         this.position = position;
     }
 
-    public Long getOrganizationId() {
-        return organizationId;
+    public Organization getOrganization() {
+        return organization;
     }
 
-    public void setOrganizationId(Long organizationId) {
-        this.organizationId = organizationId;
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 
-    public Long getDepartmentId() {
-        return departmentId;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartmentId(Long departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public Integer getAge() {
