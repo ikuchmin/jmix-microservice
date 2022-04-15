@@ -32,7 +32,7 @@ export const authProvider: AuthProvider | LegacyAuthProvider | undefined = {
         return Promise.resolve();
     },
     checkError: ({ status }) => {
-        return status === 401 || status === 403
+        return status === 401
             ? Promise.reject()
             : Promise.resolve();
     },
