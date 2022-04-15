@@ -7,13 +7,18 @@ buildscript {
         mavenCentral()
     }
 
-    repositories commonRepositories
+    repositories {
+        commonRepositories
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
 
     dependencies {
         classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '5.4.0'
         classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version:'2.6.4'
         classpath group: 'io.spring.gradle', name:'dependency-management-plugin', version: '1.0.11.RELEASE'
-
+        classpath group: 'com.github.node-gradle', name: 'gradle-node-plugin', version: '3.2.1'
     }
 }
 
@@ -116,6 +121,7 @@ configure(webclientModule) {
 }
 
 configure(reactModule) {
+    apply(plugin: 'com.github.node-gradle.node')
 
     def portalApiGeneratedSrcDir = "$buildDir/gateway-service-api-react-config"
 
@@ -135,7 +141,14 @@ configure(reactModule) {
 //        verbose = true
     }
 
-    task npmPackage(type: Tar, dependsOn: generateClientSources) {
+    node {
+        nodeProjectDir = file("$portalApiGeneratedSrcDir")
+    }
+
+    npmInstall.dependsOn generateClientSources
+    npm_run_build.dependsOn npmInstall
+
+    task npmPackage(type: Tar, dependsOn: [npm_run_build]) {
         archiveFileName = "${project.name}-${projectVersion.replace('-SNAPSHOT', '')}.tgz"
         destinationDirectory = file("$buildDir/dist")
         compression = Compression.GZIP
@@ -149,6 +162,4 @@ configure(reactModule) {
     artifacts {
         npm(npmPackage)
     }
-
-    task distribution(dependsOn: npmPackage)
 }
