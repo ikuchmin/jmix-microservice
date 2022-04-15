@@ -12,10 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { REST_BASE_PATH_2 } from "../../common/rest-info";
 
-
-export const BASE_PATH = REST_BASE_PATH_2.replace(/\/+$/, "");
+export const BASE_PATH = 'http://localhost'.replace(/\/+$/, "");
 
 const isBlob = (value: any) => typeof Blob !== 'undefined' && value instanceof Blob;
 

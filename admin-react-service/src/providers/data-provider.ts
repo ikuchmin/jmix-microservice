@@ -1,13 +1,15 @@
 import { DataProvider, LegacyDataProvider } from "react-admin";
 import { createDataProvider } from "../common/data-provider";
 import { ResoursesEnum } from "../common/resourses";
-import { DepartmentControllerApi, DepartmentDto, EmployeeControllerApi, EmployeeDto, OrganizationControllerApi, OrganizationDto } from "../rest/gateway";
+import { Configuration, DepartmentControllerApi, DepartmentDto, EmployeeControllerApi, EmployeeDto, OrganizationControllerApi, OrganizationDto } from "../rest/gateway";
 
 type ParamsType = DepartmentDto | EmployeeDto | OrganizationDto;
 
-const departmentsApi = new DepartmentControllerApi();
-const employeesApi = new EmployeeControllerApi();
-const organizationsApi = new OrganizationControllerApi();
+const configuration = new Configuration({basePath: process.env.REACT_APP_API_URL});
+
+const departmentsApi = new DepartmentControllerApi(configuration);
+const employeesApi = new EmployeeControllerApi(configuration);
+const organizationsApi = new OrganizationControllerApi(configuration);
 
 function getHeaders() {
     const headers = new Headers({ Accept: 'application/json', "Content-Type": "application/json" });
@@ -21,7 +23,7 @@ const getList = (resources: ResoursesEnum) => {
 
     switch(resources) {
         case ResoursesEnum.employee:
-            return employeesApi.findAllEmployees.call(employeesApi, {headers});
+            return employeesApi.findAllEmployees.call(employeesApi, {headers, });
         case ResoursesEnum.department:
             return departmentsApi.findAllDepartments.call(departmentsApi, {headers});
         case ResoursesEnum.organization:
