@@ -18,7 +18,7 @@ export function DepartmentList(props: AdminListProps) {
                     <TextField source="name" />
                 </ReferenceField>
                 <AdminListActionToolbar>
-                    <EditButton />
+                    {/*<EditButton />*/}
                     <ShowButton />
                 </AdminListActionToolbar>
             </Datagrid>

@@ -29,7 +29,7 @@ export function EmployeeList(props: AdminListProps) {
                 </ReferenceField>
 
                 <AdminListActionToolbar>
-                    <EditButton />
+                    {/*<EditButton />*/}
                     <ShowButton />
                 </AdminListActionToolbar>
             </Datagrid>
