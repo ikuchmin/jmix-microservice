@@ -100,8 +100,6 @@ services:
         -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
         -DAUTH_SERVER=http://auth:8080/auth/
-#    ports:
-#      - "5005:5005"
     mem_limit: 512MB
     depends_on:
       gateway:
@@ -130,12 +128,11 @@ services:
         -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
         -DAUTH_SERVER=http://auth:8080/auth/
-#    ports:
-#      - "5005:5005"
     mem_limit: 512MB
     depends_on:
       gateway:
         condition: service_healthy
+
   admin-jmix:
     hostname: admin-jmix
     build: ./admin-jmix-service/
