@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
-        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
         caption="msg://departmentBrowse.caption"
         focusComponent="departmentsTable">
     <data readOnly="true">
@@ -36,7 +35,7 @@
             <columns>
                 <column id="id"/>
                 <column id="name"/>
-                <column id="organizationId"/>
+                <column id="organization"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

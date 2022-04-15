@@ -8,6 +8,7 @@ import ru.udya.services.gateway.api.client.DepartmentControllerApi;
 import ru.udya.services.gateway.api.model.DepartmentDto;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component("adm_DepartmentAdapter")
 public class DepartmentAdapter {
@@ -19,9 +20,14 @@ public class DepartmentAdapter {
 
     public List<Department> findAll() {
         return departmentControllerApi.findAllDepartments()
+                .toStream()
                 .map(departmentMapper::departmentDtoToDepartment)
-                .collectList()
-                .block();
+                .collect(Collectors.toList());
+    }
+
+    public Department findById(Long id) {
+        DepartmentDto dto = departmentControllerApi.findDepartmentById(id).block();
+        return departmentMapper.departmentDtoToDepartment(dto);
     }
 
     public Department create(Department department) {
@@ -31,5 +37,12 @@ public class DepartmentAdapter {
                 .addDepartment(departmentDto).block();
 
         return departmentMapper.departmentDtoToDepartment(dto);
+    }
+
+    public List<Department> findDepartments(Long organizationId) {
+        return departmentControllerApi.findDepartmentByOrganization(organizationId)
+                .toStream()
+                .map(departmentMapper::departmentDtoToDepartment)
+                .collect(Collectors.toList());
     }
 }
