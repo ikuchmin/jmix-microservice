@@ -15,7 +15,7 @@ export function OrganizationList(props: AdminListProps) {
                 <TextField source="name" sortable={false}/>
                 <TextField source="address" sortable={false}/>
                 <AdminListActionToolbar>
-                    <EditButton />
+                    {/*<EditButton />*/}
                     <ShowButton />
                 </AdminListActionToolbar>
             </Datagrid>
