@@ -1,7 +1,7 @@
 import { DataProvider, LegacyDataProvider } from "react-admin";
 import { createDataProvider } from "../common/data-provider";
 import { ResoursesEnum } from "../common/resourses";
-import { Configuration, DepartmentControllerApi, DepartmentDto, EmployeeControllerApi, EmployeeDto, OrganizationControllerApi, OrganizationDto } from "gateway-service-api-react-client/src";
+import { Configuration, DepartmentControllerApi, DepartmentDto, EmployeeControllerApi, EmployeeDto, OrganizationControllerApi, OrganizationDto } from "gateway-service-api-react-client";
 
 type ParamsType = DepartmentDto | EmployeeDto | OrganizationDto;
 
