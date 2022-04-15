@@ -25,6 +25,7 @@ Add `client` to the auth server KeyCloak
 This sample microservices-based system consists of the following modules:
 
 - **admin-service** - a module that uses Spring Boot Admin for monitoring Spring Boot applications and using the Spring Boot Actuator module in the background.
+- **admin-react-service** - a Admin React module that giving UI to manage resources like employees, departments, organizations.
 - **config-service** - a module that uses Spring Cloud Config Server for running configuration server in the `native` mode. The configuration files are placed on the classpath.
 - **discovery-service** - a module that depending on the example it uses Spring Cloud Netflix Eureka as an embedded discovery server.
 - **gateway-service** - a module that Spring Cloud Gateway for running Spring Boot application that acts as a proxy/gateway in our architecture.
