@@ -1,7 +1,7 @@
 import { DataProvider, LegacyDataProvider } from "react-admin";
 import { createDataProvider } from "../common/data-provider";
 import { ResoursesEnum } from "../common/resourses";
-import { Configuration, DepartmentControllerApi, DepartmentDto, EmployeeControllerApi, EmployeeDto, OrganizationControllerApi, OrganizationDto } from "../rest/gateway";
+import { Configuration, DepartmentControllerApi, DepartmentDto, EmployeeControllerApi, EmployeeDto, OrganizationControllerApi, OrganizationDto } from "gateway-service-api-react-client/src";
 
 type ParamsType = DepartmentDto | EmployeeDto | OrganizationDto;
 
@@ -68,12 +68,12 @@ const getManyReference = (
 
     switch (resources) {
         case ResoursesEnum.department:
-            return employeesApi.findEmployeeByDepartment.call(employeesApi, {departmentId: params?.id}, {headers});
+            return employeesApi.findEmployeeByDepartment.call(employeesApi, {departmentId: params.id}, {headers});
         case ResoursesEnum.organization:
-            if (params?.target === "employee_id") {
-                return employeesApi.findEmployeeByOrganization.call(employeesApi, {organizationId: params?.id}, {headers});
+            if (params.target === "employee_id") {
+                return employeesApi.findEmployeeByOrganization.call(employeesApi, {organizationId: params.id}, {headers});
             }
-            return departmentsApi.findDepartmentByOrganization.call(departmentsApi, {organizationId: params?.id}, {headers});
+            return departmentsApi.findDepartmentByOrganization.call(departmentsApi, {organizationId: params.id}, {headers});
         default:
             return Promise.resolve([])
     }
@@ -87,11 +87,11 @@ export const dataProvider: DataProvider | LegacyDataProvider = createDataProvide
                 total: data.length
             }
         }),
-    create: (resources: ResoursesEnum, params: { data: ParamsType }) => create(resources, params?.data)
+    create: (resources: ResoursesEnum, params: { data: ParamsType }) => create(resources, params.data)
         .then((data: ParamsType) => {
             return {data}
         }),
-    getOne: (resources: ResoursesEnum, params: { id: string }) => getOne(resources, +params?.id)
+    getOne: (resources: ResoursesEnum, params: { id: string }) => getOne(resources, +params.id)
         .then((data: ParamsType) => {
             return {data}
         }),
