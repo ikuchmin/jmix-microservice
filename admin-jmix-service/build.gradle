@@ -55,7 +55,7 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth' FIXME: https://github.com/ikuchmin/jmix-microservice/issues/9
 
     implementation 'org.mapstruct:mapstruct:1.4.2.Final'
     runtimeOnly 'org.hsqldb:hsqldb'
