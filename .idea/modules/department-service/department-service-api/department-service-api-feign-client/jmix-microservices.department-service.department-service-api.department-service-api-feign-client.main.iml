@@ -5,7 +5,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Jmix EclipseLink" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="jmix-microservices.department-service.department-service-api.department-service-api-feign-client.main" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>

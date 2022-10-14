@@ -1,6 +1,7 @@
 services:
   admin:
     hostname: admin
+    image: jmix-microservices/admin
     build: ./admin-service/
     ports:
       - "8090:8090"
@@ -13,6 +14,7 @@ services:
 
   config:
     hostname: config
+    image: jmix-microservices/config
     build: ./config-service/
     environment:
       - JAVA_OPTS=
@@ -31,6 +33,7 @@ services:
   
   discovery:
     hostname: discovery
+    image: jmix-microservices/discovery
     build: ./discovery-service/
     environment:
       - JAVA_OPTS=
@@ -50,6 +53,7 @@ services:
 
   gateway:
     hostname: gateway
+    image: jmix-microservices/gateway
     build: ./gateway-service/
     environment:
       - JAVA_OPTS=
@@ -73,6 +77,7 @@ services:
 
   auth:
     hostname: auth
+    image: jmix-microservices/auth
     build: ./auth-service/
     environment:
       - JAVA_OPTS=
@@ -93,6 +98,7 @@ services:
 
   employee:
     hostname: employee
+    image: jmix-microservices/employee
     build: ./employee-service/
     environment:
       - JAVA_OPTS=
@@ -107,6 +113,7 @@ services:
 
   department:
     hostname: department
+    image: jmix-microservices/department
     build: ./department-service/
     environment:
       - JAVA_OPTS=
@@ -121,6 +128,7 @@ services:
 
   organization:
     hostname: organization
+    image: jmix-microservices/organization
     build: ./organization-service/
     environment:
       - JAVA_OPTS=
@@ -135,6 +143,7 @@ services:
 
   admin-jmix:
     hostname: admin-jmix
+    image: jmix-microservices/admin-jmix
     build: ./admin-jmix-service/
     environment:
       - JAVA_OPTS=
@@ -142,7 +151,7 @@ services:
         -DCONFIG_SERVER=http://config:8088/
         -DEUREKA_SERVER=http://discovery:8061/eureka/
         -DAUTH_SERVER=http://auth:8080/auth/
-        -DAUTH_SERVER_EXTERNAL=http://localhost:8080/auth/
+        -DAUTH_SERVER_EXTERNAL=http://192.168.99.104:8080/auth/
         -DOAUTH2_CLIENT_SECRET=PoDY1cxzvPWfpUeDVLaw7agiC0IX8OAK
     ports:
       - "8000:8000"
@@ -152,19 +161,20 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
-    depends_on:
-      gateway:
-        condition: service_healthy
+#    depends_on:
+#      gateway:
+#        condition: service_healthy
 
-  admin-react:
-    hostname: admin-react
-    build: ./admin-react-service/
-    environment:
-      - GATEWAY_SERVER=http://gateway:8060/
-    ports:
-      - "3000:80"
-    mem_limit: 512MB
-    depends_on:
-      gateway:
-        condition: service_healthy
+#  admin-react:
+#    hostname: admin-react
+#    image: jmix-microservices/admin-react
+#    build: ./admin-react-service/
+#    environment:
+#      - GATEWAY_SERVER=http://gateway:8060/
+#    ports:
+#      - "3000:80"
+#    mem_limit: 512MB
+#    depends_on:
+#      gateway:
+#        condition: service_healthy
 

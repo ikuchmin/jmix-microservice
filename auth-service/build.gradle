@@ -23,9 +23,9 @@ dependencies {
 
 //    implementation 'de.codecentric:spring-boot-admin-starter-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
-    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client') {
-        exclude group: 'javax.ws.rs', module: 'jsr311-api'
-    }
+//    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client') {
+//        exclude group: 'javax.ws.rs', module: 'jsr311-api'
+//    }
 
     implementation "com.github.thomasdarimont.embedded-spring-boot-keycloak-server:embedded-keycloak-server-spring-boot-starter:7.0.2"
 //    implementation 'org.keycloak:keycloak-model-jpa:17.0.0'

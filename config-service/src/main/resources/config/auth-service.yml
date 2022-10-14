@@ -5,15 +5,15 @@ server:
     context-path: "/"
   shutdown: graceful
 
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 5
-    leaseExpirationDurationInSeconds: 5
-  client:
-    fetchRegistry: true
-    registryFetchIntervalSeconds: 5
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER:http://localhost:8061/eureka/}
+#eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: 5
+#    leaseExpirationDurationInSeconds: 5
+#  client:
+#    fetchRegistry: true
+#    registryFetchIntervalSeconds: 5
+#    serviceUrl:
+#      defaultZone: ${EUREKA_SERVER:http://localhost:8061/eureka/}
 
 management:
   endpoint:

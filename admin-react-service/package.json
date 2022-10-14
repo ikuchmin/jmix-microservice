@@ -10,6 +10,7 @@
     "@types/node": "^16.11.26",
     "@types/prop-types": "^15.7.4",
     "@types/react": "^17.0.43",
+    "gateway-service-api-react-client": "file:../gateway-service/gateway-service-api/gateway-service-api-react-client/build/dist/gateway-service-api-react-client-1.4.0.tgz",
     "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
