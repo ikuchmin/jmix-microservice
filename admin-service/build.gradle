@@ -22,6 +22,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     implementation 'de.codecentric:spring-boot-admin-starter-server'
+    // do not use spring-cloud-starter-kubernetes-client because of
+    // https://github.com/spring-cloud/spring-cloud-kubernetes/issues/745
     implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-fabric8'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
