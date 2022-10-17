@@ -1,6 +1,6 @@
 package ru.udya.services.organization.repository;
 
-import org.apache.commons.lang.SerializationUtils;
+import org.apache.commons.lang3.SerializationUtils;
 import ru.udya.services.organization.model.Organization;
 
 import java.util.ArrayList;

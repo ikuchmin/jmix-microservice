@@ -1,7 +1,7 @@
 package ru.udya.services.department.repository;
 
 
-import org.apache.commons.lang.SerializationUtils;
+import org.apache.commons.lang3.SerializationUtils;
 import ru.udya.services.department.model.Department;
 
 import java.util.ArrayList;

@@ -1,0 +1,22 @@
+{{- if .Values.rbac.create }}
+
+# Role binding for clusterAdminRole == false and clusterReadOnlyRole=false
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: {{ template "organization.name" . }}
+    chart: {{ template "organization.chart" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "organization.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ template "organization.fullname" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ template "organization.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}
+{{- end -}}

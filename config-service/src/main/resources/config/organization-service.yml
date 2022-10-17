@@ -1,11 +1,15 @@
 server:
-  port: 0
+  port: 8080
 
 spring:
   boot:
     admin:
       client:
         url: ${ADMIN_SERVER:http://localhost:8090/}
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: false
   security:
     oauth2:
       resourceserver:

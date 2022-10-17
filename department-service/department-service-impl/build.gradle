@@ -53,11 +53,14 @@ dependencies {
 
     implementation 'de.codecentric:spring-boot-admin-starter-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
     implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
 
     runtimeOnly 'org.hsqldb:hsqldb'
 
