@@ -1,2 +1,11 @@
 server:
   port: 8090
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"

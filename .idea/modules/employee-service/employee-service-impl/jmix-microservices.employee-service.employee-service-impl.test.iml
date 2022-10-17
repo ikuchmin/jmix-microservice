@@ -31,6 +31,7 @@
           <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-openfeign" />
           <Dependency configuration="implementation" group="org.springframework.cloud" name="spring-cloud-starter-sleuth" />
           <Dependency configuration="implementation" group="org.mapstruct" name="mapstruct" version="1.4.2.Final" />
+          <Dependency configuration="implementation" group="org.apache.commons" name="commons-lang3" version="3.12.0" />
           <Dependency configuration="runtimeOnly" group="org.hsqldb" name="hsqldb" />
           <Dependency configuration="testImplementation" group="org.springframework.boot" name="spring-boot-starter-test">
             <ExcludeRule group="org.junit.vintage" module="junit-vintage-engine" />
