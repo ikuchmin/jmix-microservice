@@ -44,7 +44,7 @@ spring:
           enabled: true
       routes:
       - id: auth-service
-        uri: lb://auth-service
+        uri: lb://dev-auth:8080
         predicates:
         - Path=/auth/**,
       - id: employee-service

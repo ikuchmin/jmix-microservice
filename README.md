@@ -63,3 +63,10 @@ The following picture illustrates the architecture described above.
 ### Gradle project structure
 
 To create new gradle module/project just add empty build.gradle in a folder
+
+
+### Configuration
+
+1. Create client
+2. Disable ssl requirement for realm
+   ![KeyCloakRequireSsl](https://github.com/ikuchmin/jmix-microservice/raw/master/assets/img/keycloak_require_ssl.png)

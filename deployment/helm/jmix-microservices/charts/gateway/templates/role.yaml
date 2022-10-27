@@ -1,0 +1,30 @@
+{{- if and .Values.rbac.create (not .Values.rbac.clusterAdminRole) }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app: {{ template "gateway.name" . }}
+    chart: {{ template "gateway.chart" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "gateway.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+rules:
+  # Allow to get list of services.
+  - apiGroups:
+      - ""
+    resources:
+      - services
+      - endpoints
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - get
+      - watch
+{{- end -}}
